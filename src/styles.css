@@ -1,32 +1,66 @@
-/* FUERZA BRUTA PARA EL MÓVIL */
+/* --- CONFIGURACIÓN PARA QUE NO SE VEA RARO --- */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0b1a0e; /* Ese verde oscuro de tu marca */
+  color: white;
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+/* --- AJUSTES ESPECÍFICOS PARA MÓVIL --- */
 @media (max-width: 768px) {
-  /* 1. Evita que la pantalla se mueva a los lados */
-  html, body, #root, .App {
-    overflow-x: hidden !important;
-    width: 100vw !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  /* 2. Todos los contenedores se vuelven verticales */
-  div, section, header, footer {
-    display: block !important;
+  
+  /* 1. Espaciado entre bloques */
+  div, section, form {
+    margin-bottom: 20px !important;
     width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    padding: 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
 
-  /* 3. Las entradas de texto y botones se agrandan */
-  input, button, select {
-    width: 100% !important;
-    font-size: 16px !important; /* Evita el zoom automático en iPhone */
-    margin-bottom: 10px !important;
+  /* 2. Botones: que no estén pegados y se vean pro */
+  button {
+    width: 90% !important;
+    max-width: 300px;
+    padding: 15px !important;
+    border-radius: 12px !important;
+    border: none !important;
+    background-color: #2ecc71 !important; /* Verde llamativo */
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    margin: 10px 0 !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   }
 
-  /* 4. Si hay tablas o gráficas, que no se salgan */
-  canvas, table, img {
-    max-width: 100% !important;
+  /* 3. Textos: que no sean gigantes */
+  h1 { font-size: 1.8rem !important; margin-bottom: 10px; }
+  h2 { font-size: 1.4rem !important; }
+  p { font-size: 1rem !important; line-height: 1.5; text-align: center; }
+
+  /* 4. Inputs (donde escribes el nombre) */
+  input {
+    width: 90% !important;
+    padding: 12px !important;
+    border-radius: 8px !important;
+    border: 1px solid #ccc !important;
+    margin-bottom: 15px !important;
+    color: #333;
+  }
+
+  /* 5. Imágenes o Logos */
+  img {
+    max-width: 150px !important;
     height: auto !important;
+    margin: 20px 0;
   }
 }
