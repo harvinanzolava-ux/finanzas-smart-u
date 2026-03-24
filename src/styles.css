@@ -15,16 +15,32 @@ body {
   padding: 15px;
 }
 
+/* --- SOLUCIÓN DE SOLAPAMIENTO (PARA QUE NADA SE TAPE) --- */
+/* Esto obliga a que los contenedores respeten su espacio de arriba a abajo */
+.App, 
+.container, 
+[class*="modulo"], 
+[class*="zona-vip"],
+section {
+  height: auto !important; 
+  min-height: min-content !important;
+  position: relative !important; 
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: visible !important;
+}
+
 /* --- AJUSTES ESPECÍFICOS PARA MÓVIL --- */
 @media (max-width: 768px) {
   
-  /* 1. Espaciado entre bloques */
+  /* 1. Espaciado entre bloques y limpieza de flotados */
   div, section, form {
-    margin-bottom: 20px !important;
+    margin-bottom: 25px !important;
     width: 100% !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+    clear: both !important; /* Corta cualquier elemento que quiera flotar al lado */
   }
 
   /* 2. Botones: que no estén pegados y se vean pro */
@@ -40,12 +56,16 @@ body {
     font-size: 16px !important;
     margin: 10px 0 !important;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    cursor: pointer;
+    /* Asegura que el botón sea "tocable" y no esté debajo de nada */
+    position: relative !important;
+    z-index: 10 !important;
   }
 
   /* 3. Textos: que no sean gigantes */
-  h1 { font-size: 1.8rem !important; margin-bottom: 10px; }
-  h2 { font-size: 1.4rem !important; }
-  p { font-size: 1rem !important; line-height: 1.5; text-align: center; }
+  h1 { font-size: 1.8rem !important; margin-bottom: 10px; text-align: center; }
+  h2 { font-size: 1.4rem !important; text-align: center; }
+  p { font-size: 1rem !important; line-height: 1.5; text-align: center; width: 90%; }
 
   /* 4. Inputs (donde escribes el nombre) */
   input {
@@ -55,12 +75,14 @@ body {
     border: 1px solid #ccc !important;
     margin-bottom: 15px !important;
     color: #333;
+    font-size: 16px !important;
   }
 
   /* 5. Imágenes o Logos */
   img {
-    max-width: 150px !important;
+    max-width: 180px !important;
     height: auto !important;
-    margin: 20px 0;
+    margin: 20px 0 !important;
+    display: block !important;
   }
 }
