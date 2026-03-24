@@ -1,65 +1,50 @@
-/* --- 1. ESTILO GLOBAL --- */
+/* 1. RESET GENERAL */
+* {
+  box-sizing: border-box !important;
+}
+
 body, html {
   margin: 0 !important;
   padding: 0 !important;
-  background-color: #0b1a0e !important; /* Verde oscuro */
-  font-family: sans-serif;
-  color: white;
+  background-color: #0b1a0e !important;
+  overflow-x: hidden !important; /* Evita que la pantalla baile */
   width: 100% !important;
-  overflow-x: hidden !important; /* Prohibido el baile lateral */
 }
 
-.App {
-  width: 100%;
-  max-width: 1200px; 
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
+/* 2. FORZAR DISEÑO VERTICAL (Adiós a la columna de la foto) */
+.App, div, section, main, .container {
+  display: block !important; /* Esto rompe las columnas de la foto */
+  width: 100% !important;
+  height: auto !important;
+  position: relative !important;
+  float: none !important; /* Por si hay floats viejos */
 }
 
-/* --- 2. LA MAGIA PARA EL CELULAR (RECARGADA) --- */
+/* 3. AJUSTES PARA EL MÓVIL */
 @media (max-width: 768px) {
   
-  /* Forzamos a que TODO respete el flujo de arriba hacia abajo */
-  *, div, section, header, footer, main {
-    position: relative !important; /* Quita el absolute que tapa cosas */
-    height: auto !important;      /* Que crezca según el contenido */
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    top: auto !important;          /* Quita posiciones fijas */
-    left: auto !important;
-  }
-
-  .App {
-    padding: 15px !important;
-    display: flex !important;
-    flex-direction: column !important; /* Todo en fila india */
-  }
-
-  /* Ajuste para que los bloques de módulos respiren */
-  [class*="modulo"], .container {
-    margin-bottom: 30px !important;
+  /* Esto hace que el texto de "Bienvenido" use todo el ancho y no se estruje */
+  h1, h2, h3, p, span {
     display: block !important;
     width: 100% !important;
+    text-align: center !important;
+    padding: 10px !important;
+    margin: 5px 0 !important;
+    word-wrap: break-word !important; /* Por si hay palabras muy largas */
   }
 
-  /* Botones: Grandes, centrados y que no se monten */
-  button {
+  /* Los módulos: que ocupen su propio espacio */
+  [class*="modulo"], .card, .btn-box {
     width: 90% !important;
-    max-width: 350px !important;
     margin: 15px auto !important;
     display: block !important;
-    padding: 15px !important;
-    font-size: 16px !important;
-    position: relative !important;
-    z-index: 5 !important; /* Para que siempre puedas tocarlos */
   }
 
-  /* Ajuste de imágenes para que no se salgan */
-  img {
-    max-width: 100% !important;
-    height: auto !important;
+  /* Botones: que se vean como en la foto pero centrados */
+  button {
+    width: 90% !important;
+    display: block !important;
+    margin: 10px auto !important;
+    padding: 15px !important;
   }
 }
