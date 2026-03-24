@@ -1,84 +1,86 @@
-/* --- CONFIGURACIÓN PARA QUE NO SE VEA RARO --- */
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #0b1a0e; /* Ese verde oscuro de tu marca */
-  color: white;
-  font-family: sans-serif;
-  overflow-x: hidden;
+/* ==========================================================
+   SMART U FINANZAS - ESTILOS RESCATE MÓVIL TOTAL
+   ========================================================== */
+
+/* --- 1. CONFIGURACIÓN BASE (Fondo oscuro de marca) --- */
+body, html {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #0b1a0e !important; /* Verde oscuro pro */
+  color: white !important;
+  font-family: 'Segoe UI', sans-serif !important;
+  overflow-x: hidden !important; /* Prohibido bailar a los lados */
+  width: 100% !important;
 }
 
-.App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 15px;
-}
-
-/* --- SOLUCIÓN DE SOLAPAMIENTO (PARA QUE NADA SE TAPE) --- */
-/* Esto obliga a que los contenedores respeten su espacio de arriba a abajo */
+/* --- 2. EL ARREGLO DE LA CAPA MOLDEABLE (No más flotar) --- */
+/* Identificamos cualquier contenedor que pueda estar flotando */
+#root, 
 .App, 
 .container, 
 [class*="modulo"], 
-[class*="zona-vip"],
+[class*="content"], 
+[class*="main"], 
 section {
-  height: auto !important; 
+  position: relative !important; /* Vuelve a la fila, no flotes */
+  height: auto !important;     /* Tu altura es lo que midas por dentro */
   min-height: min-content !important;
-  position: relative !important; 
   display: flex !important;
-  flex-direction: column !important;
-  overflow: visible !important;
+  flex-direction: column !important; /* Todo en fila vertical */
+  top: 0 !important;             /* Nada de separaciones raras arriba */
+  left: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;  /* Muestra todo lo que tienes dentro */
+  box-sizing: border-box !important;
 }
 
-/* --- AJUSTES ESPECÍFICOS PARA MÓVIL --- */
+/* --- 3. AJUSTES ESPECÍFICOS PARA MÓVIL (Martillazo final) --- */
 @media (max-width: 768px) {
   
-  /* 1. Espaciado entre bloques y limpieza de flotados */
-  div, section, form {
-    margin-bottom: 25px !important;
-    width: 100% !important;
+  /* Fuerza a que cada bloque se ponga DEBAJO del anterior */
+  div, section, form, header, footer {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    clear: both !important; /* Corta cualquier elemento que quiera flotar al lado */
+    margin-bottom: 25px !important; /* Aire entre bloques */
+    padding: 15px !important;
+    clear: both !important; /* Nadie se me pone al lado */
   }
 
-  /* 2. Botones: que no estén pegados y se vean pro */
+  /* Botones: Grandes, centrados y tocables */
   button {
     width: 90% !important;
-    max-width: 300px;
-    padding: 15px !important;
+    max-width: 320px !important;
+    padding: 16px !important;
+    margin: 10px 0 !important;
     border-radius: 12px !important;
-    border: none !important;
-    background-color: #2ecc71 !important; /* Verde llamativo */
+    background-color: #2ecc71 !important; /* Verde vibrante */
     color: white !important;
     font-weight: bold !important;
     font-size: 16px !important;
-    margin: 10px 0 !important;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    cursor: pointer;
-    /* Asegura que el botón sea "tocable" y no esté debajo de nada */
+    border: none !important;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3) !important;
     position: relative !important;
-    z-index: 10 !important;
+    z-index: 10 !important; /* Prioridad para tu dedo */
   }
 
-  /* 3. Textos: que no sean gigantes */
-  h1 { font-size: 1.8rem !important; margin-bottom: 10px; text-align: center; }
-  h2 { font-size: 1.4rem !important; text-align: center; }
-  p { font-size: 1rem !important; line-height: 1.5; text-align: center; width: 90%; }
+  /* Textos: Ajustados y centrados */
+  h1 { font-size: 1.8rem !important; margin-top: 10px; text-align: center; }
+  h2 { font-size: 1.4rem !important; margin-bottom: 10px; text-align: center; }
+  p { font-size: 1rem !important; line-height: 1.6; text-align: center; width: 92%; margin-bottom: 15px; }
 
-  /* 4. Inputs (donde escribes el nombre) */
+  /* Inputs (Login, nombre) */
   input {
     width: 90% !important;
-    padding: 12px !important;
+    padding: 14px !important;
     border-radius: 8px !important;
-    border: 1px solid #ccc !important;
     margin-bottom: 15px !important;
-    color: #333;
-    font-size: 16px !important;
+    border: 1px solid #ccc !important;
+    font-size: 16px !important; /* Evita zoom en iPhone */
   }
 
-  /* 5. Imágenes o Logos */
+  /* Imágenes / Logos */
   img {
     max-width: 180px !important;
     height: auto !important;
