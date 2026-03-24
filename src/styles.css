@@ -1,41 +1,32 @@
-/* --- CONFIGURACIÓN BASE --- */
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #f4f7f6; /* Un color gris clarito de fondo */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.App {
-  text-align: center;
-  padding: 20px;
-  max-width: 1200px; /* Evita que en PC se estire demasiado */
-  margin: 0 auto;
-}
-
-/* --- ESTO ES LO QUE ARREGLA EL MÓVIL --- */
-@media (max-width: 600px) {
-  .App {
-    padding: 10px; /* Menos espacio en los bordes para ganar pantalla */
+/* FUERZA BRUTA PARA EL MÓVIL */
+@media (max-width: 768px) {
+  /* 1. Evita que la pantalla se mueva a los lados */
+  html, body, #root, .App {
+    overflow-x: hidden !important;
+    width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  /* Si tienes tarjetas o contenedores de datos, que ocupen todo el ancho */
-  .card, .container, .section {
+  /* 2. Todos los contenedores se vuelven verticales */
+  div, section, header, footer {
+    display: block !important;
     width: 100% !important;
-    margin: 10px 0 !important;
-    box-sizing: border-box;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 10px !important;
   }
 
-  /* Ajustamos los textos para que no se vean gigantes */
-  h1 {
-    font-size: 1.5rem;
+  /* 3. Las entradas de texto y botones se agrandan */
+  input, button, select {
+    width: 100% !important;
+    font-size: 16px !important; /* Evita el zoom automático en iPhone */
+    margin-bottom: 10px !important;
   }
-  
-  /* Los botones en el celular deben ser fáciles de tocar */
-  button {
-    width: 100%;
-    height: 50px;
-    font-size: 16px;
-    margin-top: 10px;
+
+  /* 4. Si hay tablas o gráficas, que no se salgan */
+  canvas, table, img {
+    max-width: 100% !important;
+    height: auto !important;
   }
 }
