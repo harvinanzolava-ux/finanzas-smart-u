@@ -647,55 +647,6 @@ export default function App() {
                     </div>
                   )}
                 </aside>
-                {/* 👇 BOTONES DE NAVEGACIÓN SMART U 👇 */}
-<div style={{ 
-  marginTop: '30px', 
-  display: 'flex', 
-  gap: '12px', 
-  flexDirection: window.innerWidth < 768 ? 'column' : 'row',
-  width: '100%',
-  padding: '10px'
-}}>
-  <button 
-    onClick={() => {
-      setCurrentModule(0);
-      setIsWelcomeActive(true);
-    }}
-    style={{
-      padding: '14px',
-      background: '#334155', 
-      color: 'white',
-      borderRadius: '12px',
-      flex: 1,
-      border: 'none',
-      cursor: 'pointer',
-      fontWeight: 'bold',
-      fontSize: '1rem'
-    }}
-  >
-    ⬅ Volver al Menú Principal
-  </button>
-
-  {currentModule < 6 && (
-    <button 
-      onClick={() => setCurrentModule(currentModule + 1)}
-      style={{
-        padding: '14px',
-        background: '#4ade80', 
-        color: '#064e4b',
-        borderRadius: '12px',
-        flex: 1,
-        border: 'none',
-        cursor: 'pointer',
-        fontWeight: 'bold',
-        fontSize: '1rem',
-        boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-      }}
-    >
-      Siguiente Módulo ({(currentModule + 1)}) ➡
-    </button>
-  )}
-</div>
               </div>
             )}
 
@@ -1098,55 +1049,6 @@ export default function App() {
                     </div>
                   )}
                 </aside>
-                {/* 👇 BOTONES DE NAVEGACIÓN SMART U 👇 */}
-<div style={{ 
-  marginTop: '30px', 
-  display: 'flex', 
-  gap: '12px', 
-  flexDirection: window.innerWidth < 768 ? 'column' : 'row',
-  width: '100%',
-  padding: '10px'
-}}>
-  <button 
-    onClick={() => {
-      setCurrentModule(0);
-      setIsWelcomeActive(true);
-    }}
-    style={{
-      padding: '14px',
-      background: '#334155', 
-      color: 'white',
-      borderRadius: '12px',
-      flex: 1,
-      border: 'none',
-      cursor: 'pointer',
-      fontWeight: 'bold',
-      fontSize: '1rem'
-    }}
-  >
-    ⬅ Volver al Menú Principal
-  </button>
-
-  {currentModule < 6 && (
-    <button 
-      onClick={() => setCurrentModule(currentModule + 1)}
-      style={{
-        padding: '14px',
-        background: '#4ade80', 
-        color: '#064e4b',
-        borderRadius: '12px',
-        flex: 1,
-        border: 'none',
-        cursor: 'pointer',
-        fontWeight: 'bold',
-        fontSize: '1rem',
-        boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-      }}
-    >
-      Siguiente Módulo ({(currentModule + 1)}) ➡
-    </button>
-  )}
-</div>
               </div>
             )}
 
@@ -1682,59 +1584,6 @@ export default function App() {
                     </div>
                   )}
                 </aside>
-                {/* 👇 BOTONES DE NAVEGACIÓN SMART U 👇 */}
-<div style={{ 
-  marginTop: '30px', 
-  display: 'flex', 
-  gap: '12px', 
-  flexDirection: window.innerWidth < 768 ? 'column' : 'row',
-  width: '100%',
-  padding: '10px'
-}}>
-  <button 
-    onClick={() => {
-      setCurrentModule(0);
-      setIsWelcomeActive(true);
-    }}
-    style={{
-      padding: '14px',
-      background: '#334155', 
-      color: 'white',
-      borderRadius: '12px',
-      flex: 1,
-      border: 'none',
-      cursor: 'pointer',
-      fontWeight: 'bold',
-      fontSize: '1rem'
-    }}
-  >
-    ⬅ Volver al Menú Principal
-  </button>
-
-  {currentModule < 6 && (
-    <button 
-      onClick={() => setCurrentModule(currentModule + 1)}
-      style={{
-        padding: '14px',
-        background: '#4ade80', 
-        color: '#064e4b',
-        borderRadius: '12px',
-        flex: 1,
-        border: 'none',
-        cursor: 'pointer',
-        fontWeight: 'bold',
-        fontSize: '1rem',
-        boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-      }}
-    >
-      Siguiente Módulo ({(currentModule + 1)}) ➡
-    </button>
-  )}
-</div>
-              </div>
-            )}
-
-            {currentModule === 2 && (
               </div>
             )}
 
@@ -2156,59 +2005,6 @@ export default function App() {
                     </div>
                   )}
                 </aside>
-                {/* 👇 BOTONES DE NAVEGACIÓN SMART U 👇 */}
-<div style={{ 
-  marginTop: '30px', 
-  display: 'flex', 
-  gap: '12px', 
-  flexDirection: window.innerWidth < 768 ? 'column' : 'row',
-  width: '100%',
-  padding: '10px'
-}}>
-  <button 
-    onClick={() => {
-      setCurrentModule(0);
-      setIsWelcomeActive(true);
-    }}
-    style={{
-      padding: '14px',
-      background: '#334155', 
-      color: 'white',
-      borderRadius: '12px',
-      flex: 1,
-      border: 'none',
-      cursor: 'pointer',
-      fontWeight: 'bold',
-      fontSize: '1rem'
-    }}
-  >
-    ⬅ Volver al Menú Principal
-  </button>
-
-  {currentModule < 6 && (
-    <button 
-      onClick={() => setCurrentModule(currentModule + 1)}
-      style={{
-        padding: '14px',
-        background: '#4ade80', 
-        color: '#064e4b',
-        borderRadius: '12px',
-        flex: 1,
-        border: 'none',
-        cursor: 'pointer',
-        fontWeight: 'bold',
-        fontSize: '1rem',
-        boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-      }}
-    >
-      Siguiente Módulo ({(currentModule + 1)}) ➡
-    </button>
-  )}
-</div>
-              </div>
-            )}
-
-            {currentModule === 2 && (
               </div>
             )}
 
@@ -2664,34 +2460,6 @@ Firma Digital: Smart U Graduate
                     </div>
                   )}
                 </aside>
-                {/* 👇 BOTONES FINALES SMART U (Solo para el Módulo 6) 👇 */}
-<div style={{ 
-  marginTop: '30px', 
-  display: 'flex', 
-  flexDirection: 'column', // En el final, uno solo centrado queda mejor
-  width: '100%',
-  padding: '10px'
-}}>
-  <button 
-    onClick={() => {
-      setCurrentModule(0);
-      setIsWelcomeActive(true);
-    }}
-    style={{
-      padding: '16px',
-      background: '#334155', 
-      color: 'white',
-      borderRadius: '12px',
-      border: 'none',
-      cursor: 'pointer',
-      fontWeight: 'bold',
-      fontSize: '1.1rem',
-      boxShadow: '0 4px 10px rgba(0,0,0,0.2)'
-    }}
-  >
-    🏆 ¡Curso Terminado! Volver al Inicio
-  </button>
-</div>
               </div>
             )}
 
