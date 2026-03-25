@@ -1969,7 +1969,7 @@ Firma Digital: Smart U Graduate
         )}
       </main>
       {/* ============================================== */}
-      {/* --- INICIO VENTANA VIP --- */}
+    {/* --- INICIO VENTANA VIP --- */}
       {showVipZone && (
         <div
           style={{
@@ -2110,7 +2110,7 @@ Firma Digital: Smart U Graduate
                     </div>
                   </div>
 
-                  {/* COMPARADOR DE TASAS (SUPERFINANCIERA O SIMILAR) */}
+                  {/* COMPARADOR DE TASAS */}
                   <div
                     onClick={() =>
                       window.open("https://www.comparabien.com.co/", "_blank")
@@ -2143,7 +2143,7 @@ Firma Digital: Smart U Graduate
                     </div>
                   </div>
 
-                  {/* INDICADORES ECONÓMICOS DEL DÍA */}
+                  {/* INDICADORES ECONÓMICOS */}
                   <div
                     onClick={() =>
                       window.open(
@@ -2244,7 +2244,6 @@ Firma Digital: Smart U Graduate
                   >
                     📈 Simulador de Bolsa
                   </button>
-                  {/* --- COPIA DESDE AQUÍ --- */}
                   <button
                     onClick={() =>
                       window.open(
@@ -2284,7 +2283,6 @@ Firma Digital: Smart U Graduate
                   >
                     🏚️ Tyba: Inversiones para principiantes
                   </button>
-                  {/* --- HASTA AQUÍ --- */}
                 </div>
               </div>
 
@@ -2315,7 +2313,7 @@ Firma Digital: Smart U Graduate
                     marginTop: "15px",
                   }}
                 >
-                  {/* RECURSO 1: CALCULADORA DE SUPERVIVENCIA (EXCEL) */}
+                  {/* RECURSO 1: EXCEL */}
                   <div
                     onClick={() =>
                       window.open(
@@ -2332,12 +2330,6 @@ Firma Digital: Smart U Graduate
                       boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
                       transition: "0.3s",
                     }}
-                    onMouseOver={(e) =>
-                      (e.currentTarget.style.transform = "translateX(5px)")
-                    }
-                    onMouseOut={(e) =>
-                      (e.currentTarget.style.transform = "translateX(0)")
-                    }
                   >
                     <small style={{ color: "#64748b", fontWeight: "bold" }}>
                       📊 EXCEL SMART
@@ -2356,7 +2348,7 @@ Firma Digital: Smart U Graduate
                     </div>
                   </div>
 
-                  {/* RECURSO 2: GUÍA DE AHORRO EXTREMO (PDF) */}
+                  {/* RECURSO 2: GUÍA PDF */}
                   <div
                     onClick={() =>
                       window.open(
@@ -2373,12 +2365,6 @@ Firma Digital: Smart U Graduate
                       boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
                       transition: "0.3s",
                     }}
-                    onMouseOver={(e) =>
-                      (e.currentTarget.style.transform = "translateX(5px)")
-                    }
-                    onMouseOut={(e) =>
-                      (e.currentTarget.style.transform = "translateX(0)")
-                    }
                   >
                     <small style={{ color: "#64748b", fontWeight: "bold" }}>
                       📄 GUÍA MODO SUPERVIVENCIA
@@ -2397,7 +2383,7 @@ Firma Digital: Smart U Graduate
                     </div>
                   </div>
 
-                  {/* RECURSO 3: TRACKER DE MICRO-DEUDAS */}
+                  {/* RECURSO 3: MONEFY */}
                   <div
                     onClick={() =>
                       window.open("https://www.monefy.com/", "_blank")
@@ -2411,12 +2397,6 @@ Firma Digital: Smart U Graduate
                       boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
                       transition: "0.3s",
                     }}
-                    onMouseOver={(e) =>
-                      (e.currentTarget.style.transform = "translateX(5px)")
-                    }
-                    onMouseOut={(e) =>
-                      (e.currentTarget.style.transform = "translateX(0)")
-                    }
                   >
                     <small style={{ color: "#64748b", fontWeight: "bold" }}>
                       📉 CONTROL PRO
@@ -2436,14 +2416,15 @@ Firma Digital: Smart U Graduate
                   </div>
                 </div>
               </div>
-              {/* TARJETA 4: BIBLIOTECA MAESTRA SMART U (MÓDULOS 1-6) */}
+
+              {/* TARJETA 4: BIBLIOTECA MAESTRA */}
               <div
                 style={{
                   background: "#f0fdfa",
                   padding: "25px",
                   borderRadius: "25px",
                   border: "1px solid #ccfbf1",
-                  gridColumn: "1 / -1", // Esto hace que ocupe todo el ancho
+                  gridColumn: "1 / -1",
                   marginTop: "20px",
                 }}
               >
@@ -2562,7 +2543,6 @@ Firma Digital: Smart U Graduate
                   </div>
                 </div>
 
-                {/* SECCIÓN DE LINKS EXTERNOS */}
                 <div
                   style={{
                     marginTop: "20px",
@@ -2625,8 +2605,9 @@ Firma Digital: Smart U Graduate
     </div>
   );
 }
-const styles: { [key: string]: React.CSSProperties } = {
-  // --- ESTILOS DE LOGIN ACTUALIZADOS (Efecto Vidrio) ---
+
+// ESTILOS SIN TYPESCRIPT PARA EVITAR ERRORES EN VERCEL
+const styles = {
   loginWrapper: {
     height: "100vh",
     width: "100vw",
@@ -2634,7 +2615,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    background: "linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)", // Fondo degradado
+    background: "linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)",
   },
   glassCard: {
     background: "rgba(255, 255, 255, 0.15)",
@@ -2663,7 +2644,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     width: "100%",
     padding: "18px",
     borderRadius: "15px",
-    background: "#059669", // Verde esmeralda fuerte
+    background: "#059669",
     color: "white",
     fontWeight: "bold",
     cursor: "pointer",
@@ -2671,8 +2652,6 @@ const styles: { [key: string]: React.CSSProperties } = {
     border: "none",
     transition: "transform 0.2s",
   },
-
-  // --- TUS ESTILOS ORIGINALES (SIN TOCAR) ---
   appContainer: {
     display: "flex",
     height: "100vh",
@@ -2840,3 +2819,5 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontSize: "0.85rem",
   },
 };
+
+export default App;
