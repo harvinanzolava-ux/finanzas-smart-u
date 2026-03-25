@@ -1222,366 +1222,203 @@ export default function App() {
             )}
 
             {currentModule === 4 && (
-              <div style={styles.grid}>
-                <section style={styles.contentCard}>
-                  <div style={styles.badge}>MÓDULO 4</div>
-                  <h2 style={{ color: "#0f766e", marginTop: "10px" }}>
-                    🛡️ El Escudo Financiero: Deudas
-                  </h2>
-                  <div style={styles.materialBox}>
-                    <h3
-                      style={{
-                        marginTop: 0,
-                        color: "#166534",
-                        marginBottom: "15px",
-                      }}
-                    >
-                      📖 Presentación: Estrategias de Libertad
-                    </h3>
-                    <iframe
-                      src="https://docs.google.com/presentation/d/1_Yp-C17fN9N8nErd-x8BciKSyPLJcVJR/embed"
-                      frameBorder="0"
-                      width="100%"
-                      height="400"
-                      allowFullScreen
-                      style={{ borderRadius: "10px" }}
-                    ></iframe>
-                  </div>
-                  <div style={{ marginBottom: "30px" }}>
-                    <h4 style={{ color: "#0f766e", marginBottom: "10px" }}>
-                      🎬 Clase: El Camino hacia la Deuda Cero
-                    </h4>
-                    <iframe
-                      width="100%"
-                      height="315"
-                      src="https://drive.google.com/file/d/1TBVvl75fTyQiGbO1Jrs_FMe_-j18eLUO/preview"
-                      frameBorder="0"
-                      allowFullScreen
-                      style={{ borderRadius: "15px", background: "#000" }}
-                    ></iframe>
-                  </div>
-                  <div style={styles.toolArea}>
-                    <h3 style={{ marginTop: 0 }}>
-                      🛠️ Actividad: Plan Bola de Nieve
-                    </h3>
-                    <p
-                      style={{
-                        fontStyle: "italic",
-                        fontSize: "0.85rem",
-                        color: "#64748b",
-                        marginBottom: "15px",
-                      }}
-                    >
-                      <b>Objetivo:</b> Listar tus deudas para visualizar el
-                      total y priorizar el pago de la más pequeña.
-                    </p>
-                    <div
-                      style={{
-                        display: "flex",
-                        gap: "10px",
-                        marginBottom: "15px",
-                      }}
-                    >
-                      <input
-                        style={styles.inputSmall}
-                        placeholder="Nombre (Ej: Visa)"
-                        value={inputDeudaNombre}
-                        onChange={(e) => setInputDeudaNombre(e.target.value)}
-                      />
-                      <input
-                        type="number"
-                        style={styles.inputSmall}
-                        placeholder="Monto $"
-                        value={inputDeudaMonto}
-                        onChange={(e) => setInputDeudaMonto(e.target.value)}
-                      />
-                      <button style={styles.btnAdd} onClick={agregarDeuda}>
-                        Añadir
-                      </button>
-                    </div>
-                    <div
-                      style={{
-                        background: "white",
-                        borderRadius: "12px",
-                        padding: "15px",
-                        border: "1px solid #e2e8f0",
-                      }}
-                    >
-                      {deudas.length === 0 ? (
-                        <p
-                          style={{
-                            textAlign: "center",
-                            color: "#94a3b8",
-                            fontSize: "0.85rem",
-                          }}
-                        >
-                          No hay deudas registradas.
-                        </p>
-                      ) : (
-                        deudas.map((d, index) => (
-                          <div
-                            key={index}
-                            style={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                              padding: "8px 0",
-                              borderBottom: "1px solid #f1f5f9",
-                            }}
-                          >
-                            <span style={{ fontSize: "0.9rem" }}>
-                              {d.nombre}
-                            </span>
-                            <span
-                              style={{ fontWeight: "bold", color: "#be185d" }}
-                            >
-                              ${d.monto.toLocaleString()}
-                            </span>
-                          </div>
-                        ))
-                      )}
-                      <div
-                        style={{
-                          marginTop: "15px",
-                          paddingTop: "10px",
-                          borderTop: "2px solid #f1f5f9",
-                          textAlign: "right",
-                        }}
-                      >
-                        <span style={{ fontSize: "0.9rem", color: "#64748b" }}>
-                          Total Deuda:{" "}
-                        </span>
-                        <strong
-                          style={{ fontSize: "1.2rem", color: "#be185d" }}
-                        >
-                          ${totalDeudas.toLocaleString()}
-                        </strong>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-                <aside style={styles.sideCol}>
-                  <div style={styles.musicCard}>
-                    <h4 style={{ marginTop: 0, color: "#be185d" }}>
-                      🎵 Concentración
-                    </h4>
-                    <iframe
-                      width="100%"
-                      height="160"
-                      src="https://www.youtube.com/embed/btPJPFnesV4"
-                      frameBorder="0"
-                      style={{ borderRadius: "12px" }}
-                    ></iframe>
-                  </div>
-                  <div style={styles.sideCardInspiration}>
-                    <h3 style={{ marginTop: 0, color: "#92400e" }}>
-                      💡 Sabiduría Módulo 4
-                    </h3>
-                    <p
-                      style={{
-                        fontStyle: "italic",
-                        fontSize: "0.95rem",
-                        color: "#451a03",
-                      }}
-                    >
-                      "Las deudas son como una bola de nieve; si las ignoras,
-                      crecen. Si las enfrentas, se derriten."
-                    </p>
-                    <hr
-                      style={{
-                        border: "0.5px solid #fde68a",
-                        margin: "15px 0",
-                      }}
-                    />
-                    <p style={{ fontSize: "0.85rem", color: "#78350f" }}>
-                      <b>Consejo Práctico:</b> Empieza pagando la deuda más
-                      pequeña. La victoria psicológica te dará impulso para las
-                      grandes.
-                    </p>
-                  </div>
-                  <button
-                    style={{
-                      ...styles.buttonMain,
-                      background:
-                        completed.indexOf(4) !== -1 ? "#4ade80" : "#0f766e",
-                    }}
-                    onClick={() => toggleComplete(4)}
-                  >
-                    {completed.indexOf(4) !== -1
-                      ? "¡Módulo 4 Completado! ✅"
-                      : "Marcar como terminado"}
-                  </button>
-                  {completed.indexOf(4) !== -1 && (
-                    <div style={styles.congratsLabel}>
-                      Llevas el {progress}% del curso
-                    </div>
-                  )}
-                </aside>
-                  {currentModule === 1 && (
-              <div style={styles.grid}>
-                <section style={styles.contentCard}>
-                  <div style={styles.badge}>MÓDULO 1</div>
-                  <h2 style={{ color: "#0f766e", marginTop: "10px" }}>
-                    🧠 Rompiendo Creencias
-                  </h2>
-                  <div style={styles.materialBox}>
-                    <h3
-                      style={{
-                        marginTop: 0,
-                        color: "#166534",
-                        marginBottom: "15px",
-                      }}
-                    >
-                      📖 Lección Maestra
-                    </h3>
-                    <iframe
-                      src="https://docs.google.com/presentation/d/14PKp_3dO0j6NCtKk6xqkHchELUM9kAEKIb8enqd9jBs/embed"
-                      frameBorder="0"
-                      width="100%"
-                      height="400"
-                      allowFullScreen
-                      style={{ borderRadius: "10px" }}
-                    ></iframe>
-                  </div>
-                  <div style={{ marginBottom: "30px" }}>
-                    <h4 style={{ color: "#0f766e", marginBottom: "10px" }}>
-                      🎬 Clase: Finanzas desde Cero
-                    </h4>
-                    <iframe
-                      width="100%"
-                      height="315"
-                      src="https://www.youtube.com/embed/3__mS7160ZY"
-                      frameBorder="0"
-                      allowFullScreen
-                      style={{ borderRadius: "15px", background: "#000" }}
-                    ></iframe>
-                  </div>
-                  <div style={styles.toolArea}>
-                    <h3 style={{ marginTop: 0 }}>
-                      🛠️ Actividad: Muro de Sueños
-                    </h3>
-                    <p
-                      style={{
-                        fontStyle: "italic",
-                        fontSize: "0.85rem",
-                        color: "#64748b",
-                        marginBottom: "15px",
-                      }}
-                    >
-                      <b>Objetivo:</b> Identificar y clasificar tus metas para
-                      darles prioridad y un valor económico real.
-                    </p>
-                    <div
-                      style={{
-                        display: "grid",
-                        gridTemplateColumns: "1fr 1fr",
-                        gap: "20px",
-                      }}
-                    >
-                      <div>
-                        <h4 style={styles.metaTitle}>⏳ Corto Plazo</h4>
-                        <div style={{ display: "flex", gap: "5px" }}>
-                          <input
-                            style={styles.inputSmall}
-                            placeholder="Ej: Laptop"
-                            value={inputCorto}
-                            onChange={(e) => setInputCorto(e.target.value)}
-                          />
-                          <button
-                            style={styles.btnAdd}
-                            onClick={agregarMetaCorto}
-                          >
-                            +
-                          </button>
-                        </div>
-                        {metasCorto.map((m, i) => (
-                          <div key={i} style={styles.metaTag}>
-                            ⚡ {m}
-                          </div>
-                        ))}
-                      </div>
-                      <div>
-                        <h4 style={styles.metaTitle}>🚀 Largo Plazo</h4>
-                        <div style={{ display: "flex", gap: "5px" }}>
-                          <input
-                            style={styles.inputSmall}
-                            placeholder="Ej: Libertad"
-                            value={inputLargo}
-                            onChange={(e) => setInputLargo(e.target.value)}
-                          />
-                          <button
-                            style={styles.btnAdd}
-                            onClick={agregarMetaLargo}
-                          >
-                            +
-                          </button>
-                        </div>
-                        {metasLargo.map((m, i) => (
-                          <div key={i} style={styles.metaTag}>
-                            💎 {m}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </section>
-                <aside style={styles.sideCol}>
-                  <div style={styles.musicCard}>
-                    <h4 style={{ marginTop: 0, color: "#be185d" }}>
-                      🎵 Canción
-                    </h4>
-                    <iframe
-                      width="100%"
-                      height="160"
-                      src="https://www.youtube.com/embed/8aRor905cCw"
-                      frameBorder="0"
-                      style={{ borderRadius: "12px" }}
-                    ></iframe>
-                  </div>
-                  <div style={styles.sideCardInspiration}>
-                    <h3 style={{ marginTop: 0, color: "#92400e" }}>
-                      💡 Sabiduría Módulo 1
-                    </h3>
-                    <p
-                      style={{
-                        fontStyle: "italic",
-                        fontSize: "0.95rem",
-                        color: "#451a03",
-                      }}
-                    >
-                      "No ahorres lo que queda después de gastar, gasta lo que
-                      queda después de ahorrar."
-                    </p>
-                    <hr
-                      style={{
-                        border: "0.5px solid #fde68a",
-                        margin: "15px 0",
-                      }}
-                    />
-                    <p style={{ fontSize: "0.85rem", color: "#78350f" }}>
-                      <b>Consejo Práctico:</b> Tu mente es tu activo más
-                      valioso. Cambia el "No puedo" por "¿Cómo puedo?".
-                    </p>
-                  </div>
-                  <button
-                    style={{
-                      ...styles.buttonMain,
-                      background:
-                        completed.indexOf(1) !== -1 ? "#4ade80" : "#0f766e",
-                    }}
-                    onClick={() => toggleComplete(1)}
-                  >
-                    {completed.indexOf(1) !== -1
-                      ? "¡Módulo 1 Completado! ✅"
-                      : "Marcar como terminado"}
-                  </button>
-                  {completed.indexOf(1) !== -1 && (
-                    <div style={styles.congratsLabel}>
-                      Llevas el {progress}% del curso
-                    </div>
-                  )}
-                </aside>
+  <div style={styles.grid}>
+    <section style={styles.contentCard}>
+      <div style={styles.badge}>MÓDULO 4</div>
+      <h2 style={{ color: "#0f766e", marginTop: "10px" }}>
+        🛡️ El Escudo Financiero: Deudas
+      </h2>
+      <div style={styles.materialBox}>
+        <h3
+          style={{
+            marginTop: 0,
+            color: "#166534",
+            marginBottom: "15px",
+          }}
+        >
+          📖 Presentación: Estrategias de Libertad
+        </h3>
+        <iframe
+          src="https://docs.google.com/presentation/d/1_Yp-C17fN9N8nErd-x8BciKSyPLJcVJR/embed"
+          frameBorder="0"
+          width="100%"
+          height="400"
+          allowFullScreen
+          style={{ borderRadius: "10px" }}
+        ></iframe>
+      </div>
+      <div style={{ marginBottom: "30px" }}>
+        <h4 style={{ color: "#0f766e", marginBottom: "10px" }}>
+          🎬 Clase: El Camino hacia la Deuda Cero
+        </h4>
+        <iframe
+          width="100%"
+          height="315"
+          src="https://drive.google.com/file/d/1TBVvl75fTyQiGbO1Jrs_FMe_-j18eLUO/preview"
+          frameBorder="0"
+          allowFullScreen
+          style={{ borderRadius: "15px", background: "#000" }}
+        ></iframe>
+      </div>
+      <div style={styles.toolArea}>
+        <h3 style={{ marginTop: 0 }}>
+          🛠️ Actividad: Plan Bola de Nieve
+        </h3>
+        <p
+          style={{
+            fontStyle: "italic",
+            fontSize: "0.85rem",
+            color: "#64748b",
+            marginBottom: "15px",
+          }}
+        >
+          <b>Objetivo:</b> Listar tus deudas para visualizar el
+          total y priorizar el pago de la más pequeña.
+        </p>
+        <div
+          style={{
+            display: "flex",
+            gap: "10px",
+            marginBottom: "15px",
+          }}
+        >
+          <input
+            style={styles.inputSmall}
+            placeholder="Nombre (Ej: Visa)"
+            value={inputDeudaNombre}
+            onChange={(e) => setInputDeudaNombre(e.target.value)}
+          />
+          <input
+            type="number"
+            style={styles.inputSmall}
+            placeholder="Monto $"
+            value={inputDeudaMonto}
+            onChange={(e) => setInputDeudaMonto(e.target.value)}
+          />
+          <button style={styles.btnAdd} onClick={agregarDeuda}>
+            Añadir
+          </button>
+        </div>
+        <div
+          style={{
+            background: "white",
+            borderRadius: "12px",
+            padding: "15px",
+            border: "1px solid #e2e8f0",
+          }}
+        >
+          {deudas.length === 0 ? (
+            <p
+              style={{
+                textAlign: "center",
+                color: "#94a3b8",
+                fontSize: "0.85rem",
+              }}
+            >
+              No hay deudas registradas.
+            </p>
+          ) : (
+            deudas.map((d, index) => (
+              <div
+                key={index}
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  padding: "8px 0",
+                  borderBottom: "1px solid #f1f5f9",
+                }}
+              >
+                <span style={{ fontSize: "0.9rem" }}>
+                  {d.nombre}
+                </span>
+                <span
+                  style={{ fontWeight: "bold", color: "#be185d" }}
+                >
+                  ${d.monto.toLocaleString()}
+                </span>
               </div>
-            )}
+            ))
+          )}
+          <div
+            style={{
+              marginTop: "15px",
+              paddingTop: "10px",
+              borderTop: "2px solid #f1f5f9",
+              textAlign: "right",
+            }}
+          >
+            <span style={{ fontSize: "0.9rem", color: "#64748b" }}>
+              Total Deuda:{" "}
+            </span>
+            <strong
+              style={{ fontSize: "1.2rem", color: "#be185d" }}
+            >
+              ${totalDeudas.toLocaleString()}
+            </strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside style={styles.sideCol}>
+      <div style={styles.musicCard}>
+        <h4 style={{ marginTop: 0, color: "#be185d" }}>
+          🎵 Concentración
+        </h4>
+        <iframe
+          width="100%"
+          height="160"
+          src="https://www.youtube.com/embed/btPJPFnesV4"
+          frameBorder="0"
+          style={{ borderRadius: "12px" }}
+        ></iframe>
+      </div>
+      <div style={styles.sideCardInspiration}>
+        <h3 style={{ marginTop: 0, color: "#92400e" }}>
+          💡 Sabiduría Módulo 4
+        </h3>
+        <p
+          style={{
+            fontStyle: "italic",
+            fontSize: "0.95rem",
+            color: "#451a03",
+          }}
+        >
+          "Las deudas son como una bola de nieve; si las ignoras,
+          crecen. Si las enfrentas, se derriten."
+        </p>
+        <hr
+          style={{
+            border: "0.5px solid #fde68a",
+            margin: "15px 0",
+          }}
+        />
+        <p style={{ fontSize: "0.85rem", color: "#78350f" }}>
+          <b>Consejo Práctico:</b> Empieza pagando la deuda más
+          pequeña. La victoria psicológica te dará impulso para las
+          grandes.
+        </p>
+      </div>
+      <button
+        style={{
+          ...styles.buttonMain,
+          background:
+            completed.indexOf(4) !== -1 ? "#4ade80" : "#0f766e",
+        }}
+        onClick={() => toggleComplete(4)}
+      >
+        {completed.indexOf(4) !== -1
+          ? "¡Módulo 4 Completado! ✅"
+          : "Marcar como terminado"}
+      </button>
+      {completed.indexOf(4) !== -1 && (
+        <div style={styles.congratsLabel}>
+          Llevas el {progress}% del curso
+        </div>
+      )}
+    </aside>
+  </div>
+)}
 
             {currentModule === 5 && (
               <div style={styles.grid}>
