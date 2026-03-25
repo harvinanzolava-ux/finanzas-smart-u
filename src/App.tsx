@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from "react";
-import "./styles.css";
 
 export default function App() {
   const [user, setUser] = useState<string | null>(null);
@@ -1969,7 +1968,7 @@ Firma Digital: Smart U Graduate
         )}
       </main>
       {/* ============================================== */}
-     {/* --- INICIO VENTANA VIP --- */}
+      {/* --- INICIO VENTANA VIP --- */}
       {showVipZone && (
         <div
           style={{
