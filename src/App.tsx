@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from "react";
-import "./styles.css";
 
 export default function App() {
   const [user, setUser] = useState<string | null>(null);
@@ -216,10 +215,7 @@ export default function App() {
         }
       `}</style>
 
-      <nav style={{
-  ...styles.sidebar,
-  display: (window.innerWidth < 768 && currentModule !== 0 && !isWelcomeActive) ? 'none' : 'flex'
-}}>
+      <nav style={styles.sidebar}>
         <div style={styles.logoBox}>🎓 Smart U Finanzas</div>
 
         <div style={{ marginBottom: "25px", textAlign: "center" }}>
@@ -1972,7 +1968,6 @@ Firma Digital: Smart U Graduate
         )}
       </main>
       {/* ============================================== */}
-
       {/* --- INICIO VENTANA VIP --- */}
       {showVipZone && (
         <div
