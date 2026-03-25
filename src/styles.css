@@ -1,50 +1,7 @@
-/* 1. RESET GENERAL */
-* {
-  box-sizing: border-box !important;
-}
+.App {
 
-body, html {
-  margin: 0 !important;
-  padding: 0 !important;
-  background-color: #0b1a0e !important;
-  overflow-x: hidden !important; /* Evita que la pantalla baile */
-  width: 100% !important;
-}
+  font-family: sans-serif;
 
-/* 2. FORZAR DISEÑO VERTICAL (Adiós a la columna de la foto) */
-.App, div, section, main, .container {
-  display: block !important; /* Esto rompe las columnas de la foto */
-  width: 100% !important;
-  height: auto !important;
-  position: relative !important;
-  float: none !important; /* Por si hay floats viejos */
-}
+  text-align: center;
 
-/* 3. AJUSTES PARA EL MÓVIL */
-@media (max-width: 768px) {
-  
-  /* Esto hace que el texto de "Bienvenido" use todo el ancho y no se estruje */
-  h1, h2, h3, p, span {
-    display: block !important;
-    width: 100% !important;
-    text-align: center !important;
-    padding: 10px !important;
-    margin: 5px 0 !important;
-    word-wrap: break-word !important; /* Por si hay palabras muy largas */
-  }
-
-  /* Los módulos: que ocupen su propio espacio */
-  [class*="modulo"], .card, .btn-box {
-    width: 90% !important;
-    margin: 15px auto !important;
-    display: block !important;
-  }
-
-  /* Botones: que se vean como en la foto pero centrados */
-  button {
-    width: 90% !important;
-    display: block !important;
-    margin: 10px auto !important;
-    padding: 15px !important;
-  }
 }
