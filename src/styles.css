@@ -1,86 +1,41 @@
-/* --- 1. AJUSTES GLOBALES (Evitan que la pantalla "baile") --- */
-* {
-  box-sizing: border-box !important;
-}
-
-html, body {
+/* --- CONFIGURACIÓN BASE --- */
+body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  overflow-x: hidden; /* Prohibido el scroll hacia los lados */
-}
-
-/* --- 2. CUERPO PRINCIPAL --- */
-.App {
+  background-color: #f4f7f6; /* Un color gris clarito de fondo */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
-  background-color: #f8fafc;
-  min-height: 100vh;
-  width: 100%;
-  padding: 10px;
 }
 
-/* --- 3. CONTENEDOR FLEXIBLE (PC y Móvil) --- */
-.grid-container { 
-  display: flex;
-  flex-direction: column; /* Por defecto uno debajo de otro (Móvil) */
-  gap: 15px;
-  width: 100%;
-  max-width: 1200px;
+.App {
+  text-align: center;
+  padding: 20px;
+  max-width: 1200px; /* Evita que en PC se estire demasiado */
   margin: 0 auto;
 }
 
-/* --- 4. AJUSTE PARA CUALQUIER GRID EN EL JS --- */
-/* Si en tu React usaste style={{display: 'grid'}}, esto lo arregla para celular */
-[style*="display: grid"], [style*="display:grid"] {
-  display: flex !important;
-  flex-direction: column !important;
-  width: 100% !important;
-}
-
-/* --- 5. VIDEOS Y PRESENTACIONES --- */
-iframe {
-  width: 100% !important; 
-  height: auto;
-  aspect-ratio: 16 / 9; 
-  border-radius: 12px;
-  border: none;
-  max-width: 100%;
-}
-
-/* --- 6. TARJETAS DE CONTENIDO --- */
-.content-card {
-  background: white;
-  padding: 15px;
-  border-radius: 15px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  margin-bottom: 15px;
-  width: 100%;
-}
-
-/* --- 7. BOTONES --- */
-button {
-  width: 100%; /* Botones grandes en el celular */
-  padding: 14px;
-  font-size: 1rem;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-/* --- 8. REGLAS PARA COMPUTADORA (Pantallas grandes) --- */
-@media (min-width: 768px) {
-  .grid-container {
-    flex-direction: row; /* En PC se ponen uno al lado del otro */
+/* --- ESTO ES LO QUE ARREGLA EL MÓVIL --- */
+@media (max-width: 600px) {
+  .App {
+    padding: 10px; /* Menos espacio en los bordes para ganar pantalla */
   }
 
-  /* Si en el JS tenías 2 columnas, esto las devuelve a su sitio en PC */
-  [style*="display: grid"], [style*="display:grid"] {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr; /* O el diseño que tenías antes */
+  /* Si tienes tarjetas o contenedores de datos, que ocupen todo el ancho */
+  .card, .container, .section {
+    width: 100% !important;
+    margin: 10px 0 !important;
+    box-sizing: border-box;
   }
 
+  /* Ajustamos los textos para que no se vean gigantes */
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  /* Los botones en el celular deben ser fáciles de tocar */
   button {
-    width: auto; /* En PC los botones vuelven a su tamaño normal */
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    margin-top: 10px;
   }
 }
