@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import "./styles.css";
 
 export default function App() {
   const [user, setUser] = useState<string | null>(null);
