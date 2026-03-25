@@ -216,7 +216,10 @@ export default function App() {
         }
       `}</style>
 
-      <nav style={styles.sidebar}>
+      <nav style={{
+  ...styles.sidebar,
+  display: (window.innerWidth < 768 && currentModule !== 0 && !isWelcomeActive) ? 'none' : 'flex'
+}}>
         <div style={styles.logoBox}>🎓 Smart U Finanzas</div>
 
         <div style={{ marginBottom: "25px", textAlign: "center" }}>
@@ -644,6 +647,55 @@ export default function App() {
                     </div>
                   )}
                 </aside>
+                {/* 👇 BOTONES DE NAVEGACIÓN SMART U 👇 */}
+<div style={{ 
+  marginTop: '30px', 
+  display: 'flex', 
+  gap: '12px', 
+  flexDirection: window.innerWidth < 768 ? 'column' : 'row',
+  width: '100%',
+  padding: '10px'
+}}>
+  <button 
+    onClick={() => {
+      setCurrentModule(0);
+      setIsWelcomeActive(true);
+    }}
+    style={{
+      padding: '14px',
+      background: '#334155', 
+      color: 'white',
+      borderRadius: '12px',
+      flex: 1,
+      border: 'none',
+      cursor: 'pointer',
+      fontWeight: 'bold',
+      fontSize: '1rem'
+    }}
+  >
+    ⬅ Volver al Menú Principal
+  </button>
+
+  {currentModule < 6 && (
+    <button 
+      onClick={() => setCurrentModule(currentModule + 1)}
+      style={{
+        padding: '14px',
+        background: '#4ade80', 
+        color: '#064e4b',
+        borderRadius: '12px',
+        flex: 1,
+        border: 'none',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: '1rem',
+        boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+      }}
+    >
+      Siguiente Módulo ({(currentModule + 1)}) ➡
+    </button>
+  )}
+</div>
               </div>
             )}
 
@@ -882,6 +934,223 @@ export default function App() {
                     </div>
                   )}
                 </aside>
+                  {currentModule === 1 && (
+              <div style={styles.grid}>
+                <section style={styles.contentCard}>
+                  <div style={styles.badge}>MÓDULO 1</div>
+                  <h2 style={{ color: "#0f766e", marginTop: "10px" }}>
+                    🧠 Rompiendo Creencias
+                  </h2>
+                  <div style={styles.materialBox}>
+                    <h3
+                      style={{
+                        marginTop: 0,
+                        color: "#166534",
+                        marginBottom: "15px",
+                      }}
+                    >
+                      📖 Lección Maestra
+                    </h3>
+                    <iframe
+                      src="https://docs.google.com/presentation/d/14PKp_3dO0j6NCtKk6xqkHchELUM9kAEKIb8enqd9jBs/embed"
+                      frameBorder="0"
+                      width="100%"
+                      height="400"
+                      allowFullScreen
+                      style={{ borderRadius: "10px" }}
+                    ></iframe>
+                  </div>
+                  <div style={{ marginBottom: "30px" }}>
+                    <h4 style={{ color: "#0f766e", marginBottom: "10px" }}>
+                      🎬 Clase: Finanzas desde Cero
+                    </h4>
+                    <iframe
+                      width="100%"
+                      height="315"
+                      src="https://www.youtube.com/embed/3__mS7160ZY"
+                      frameBorder="0"
+                      allowFullScreen
+                      style={{ borderRadius: "15px", background: "#000" }}
+                    ></iframe>
+                  </div>
+                  <div style={styles.toolArea}>
+                    <h3 style={{ marginTop: 0 }}>
+                      🛠️ Actividad: Muro de Sueños
+                    </h3>
+                    <p
+                      style={{
+                        fontStyle: "italic",
+                        fontSize: "0.85rem",
+                        color: "#64748b",
+                        marginBottom: "15px",
+                      }}
+                    >
+                      <b>Objetivo:</b> Identificar y clasificar tus metas para
+                      darles prioridad y un valor económico real.
+                    </p>
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "1fr 1fr",
+                        gap: "20px",
+                      }}
+                    >
+                      <div>
+                        <h4 style={styles.metaTitle}>⏳ Corto Plazo</h4>
+                        <div style={{ display: "flex", gap: "5px" }}>
+                          <input
+                            style={styles.inputSmall}
+                            placeholder="Ej: Laptop"
+                            value={inputCorto}
+                            onChange={(e) => setInputCorto(e.target.value)}
+                          />
+                          <button
+                            style={styles.btnAdd}
+                            onClick={agregarMetaCorto}
+                          >
+                            +
+                          </button>
+                        </div>
+                        {metasCorto.map((m, i) => (
+                          <div key={i} style={styles.metaTag}>
+                            ⚡ {m}
+                          </div>
+                        ))}
+                      </div>
+                      <div>
+                        <h4 style={styles.metaTitle}>🚀 Largo Plazo</h4>
+                        <div style={{ display: "flex", gap: "5px" }}>
+                          <input
+                            style={styles.inputSmall}
+                            placeholder="Ej: Libertad"
+                            value={inputLargo}
+                            onChange={(e) => setInputLargo(e.target.value)}
+                          />
+                          <button
+                            style={styles.btnAdd}
+                            onClick={agregarMetaLargo}
+                          >
+                            +
+                          </button>
+                        </div>
+                        {metasLargo.map((m, i) => (
+                          <div key={i} style={styles.metaTag}>
+                            💎 {m}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <aside style={styles.sideCol}>
+                  <div style={styles.musicCard}>
+                    <h4 style={{ marginTop: 0, color: "#be185d" }}>
+                      🎵 Canción
+                    </h4>
+                    <iframe
+                      width="100%"
+                      height="160"
+                      src="https://www.youtube.com/embed/8aRor905cCw"
+                      frameBorder="0"
+                      style={{ borderRadius: "12px" }}
+                    ></iframe>
+                  </div>
+                  <div style={styles.sideCardInspiration}>
+                    <h3 style={{ marginTop: 0, color: "#92400e" }}>
+                      💡 Sabiduría Módulo 1
+                    </h3>
+                    <p
+                      style={{
+                        fontStyle: "italic",
+                        fontSize: "0.95rem",
+                        color: "#451a03",
+                      }}
+                    >
+                      "No ahorres lo que queda después de gastar, gasta lo que
+                      queda después de ahorrar."
+                    </p>
+                    <hr
+                      style={{
+                        border: "0.5px solid #fde68a",
+                        margin: "15px 0",
+                      }}
+                    />
+                    <p style={{ fontSize: "0.85rem", color: "#78350f" }}>
+                      <b>Consejo Práctico:</b> Tu mente es tu activo más
+                      valioso. Cambia el "No puedo" por "¿Cómo puedo?".
+                    </p>
+                  </div>
+                  <button
+                    style={{
+                      ...styles.buttonMain,
+                      background:
+                        completed.indexOf(1) !== -1 ? "#4ade80" : "#0f766e",
+                    }}
+                    onClick={() => toggleComplete(1)}
+                  >
+                    {completed.indexOf(1) !== -1
+                      ? "¡Módulo 1 Completado! ✅"
+                      : "Marcar como terminado"}
+                  </button>
+                  {completed.indexOf(1) !== -1 && (
+                    <div style={styles.congratsLabel}>
+                      Llevas el {progress}% del curso
+                    </div>
+                  )}
+                </aside>
+                {/* 👇 BOTONES DE NAVEGACIÓN SMART U 👇 */}
+<div style={{ 
+  marginTop: '30px', 
+  display: 'flex', 
+  gap: '12px', 
+  flexDirection: window.innerWidth < 768 ? 'column' : 'row',
+  width: '100%',
+  padding: '10px'
+}}>
+  <button 
+    onClick={() => {
+      setCurrentModule(0);
+      setIsWelcomeActive(true);
+    }}
+    style={{
+      padding: '14px',
+      background: '#334155', 
+      color: 'white',
+      borderRadius: '12px',
+      flex: 1,
+      border: 'none',
+      cursor: 'pointer',
+      fontWeight: 'bold',
+      fontSize: '1rem'
+    }}
+  >
+    ⬅ Volver al Menú Principal
+  </button>
+
+  {currentModule < 6 && (
+    <button 
+      onClick={() => setCurrentModule(currentModule + 1)}
+      style={{
+        padding: '14px',
+        background: '#4ade80', 
+        color: '#064e4b',
+        borderRadius: '12px',
+        flex: 1,
+        border: 'none',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: '1rem',
+        boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+      }}
+    >
+      Siguiente Módulo ({(currentModule + 1)}) ➡
+    </button>
+  )}
+</div>
+              </div>
+            )}
+
+            {currentModule === 2 && (
               </div>
             )}
 
@@ -1249,6 +1518,223 @@ export default function App() {
                     </div>
                   )}
                 </aside>
+                  {currentModule === 1 && (
+              <div style={styles.grid}>
+                <section style={styles.contentCard}>
+                  <div style={styles.badge}>MÓDULO 1</div>
+                  <h2 style={{ color: "#0f766e", marginTop: "10px" }}>
+                    🧠 Rompiendo Creencias
+                  </h2>
+                  <div style={styles.materialBox}>
+                    <h3
+                      style={{
+                        marginTop: 0,
+                        color: "#166534",
+                        marginBottom: "15px",
+                      }}
+                    >
+                      📖 Lección Maestra
+                    </h3>
+                    <iframe
+                      src="https://docs.google.com/presentation/d/14PKp_3dO0j6NCtKk6xqkHchELUM9kAEKIb8enqd9jBs/embed"
+                      frameBorder="0"
+                      width="100%"
+                      height="400"
+                      allowFullScreen
+                      style={{ borderRadius: "10px" }}
+                    ></iframe>
+                  </div>
+                  <div style={{ marginBottom: "30px" }}>
+                    <h4 style={{ color: "#0f766e", marginBottom: "10px" }}>
+                      🎬 Clase: Finanzas desde Cero
+                    </h4>
+                    <iframe
+                      width="100%"
+                      height="315"
+                      src="https://www.youtube.com/embed/3__mS7160ZY"
+                      frameBorder="0"
+                      allowFullScreen
+                      style={{ borderRadius: "15px", background: "#000" }}
+                    ></iframe>
+                  </div>
+                  <div style={styles.toolArea}>
+                    <h3 style={{ marginTop: 0 }}>
+                      🛠️ Actividad: Muro de Sueños
+                    </h3>
+                    <p
+                      style={{
+                        fontStyle: "italic",
+                        fontSize: "0.85rem",
+                        color: "#64748b",
+                        marginBottom: "15px",
+                      }}
+                    >
+                      <b>Objetivo:</b> Identificar y clasificar tus metas para
+                      darles prioridad y un valor económico real.
+                    </p>
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "1fr 1fr",
+                        gap: "20px",
+                      }}
+                    >
+                      <div>
+                        <h4 style={styles.metaTitle}>⏳ Corto Plazo</h4>
+                        <div style={{ display: "flex", gap: "5px" }}>
+                          <input
+                            style={styles.inputSmall}
+                            placeholder="Ej: Laptop"
+                            value={inputCorto}
+                            onChange={(e) => setInputCorto(e.target.value)}
+                          />
+                          <button
+                            style={styles.btnAdd}
+                            onClick={agregarMetaCorto}
+                          >
+                            +
+                          </button>
+                        </div>
+                        {metasCorto.map((m, i) => (
+                          <div key={i} style={styles.metaTag}>
+                            ⚡ {m}
+                          </div>
+                        ))}
+                      </div>
+                      <div>
+                        <h4 style={styles.metaTitle}>🚀 Largo Plazo</h4>
+                        <div style={{ display: "flex", gap: "5px" }}>
+                          <input
+                            style={styles.inputSmall}
+                            placeholder="Ej: Libertad"
+                            value={inputLargo}
+                            onChange={(e) => setInputLargo(e.target.value)}
+                          />
+                          <button
+                            style={styles.btnAdd}
+                            onClick={agregarMetaLargo}
+                          >
+                            +
+                          </button>
+                        </div>
+                        {metasLargo.map((m, i) => (
+                          <div key={i} style={styles.metaTag}>
+                            💎 {m}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <aside style={styles.sideCol}>
+                  <div style={styles.musicCard}>
+                    <h4 style={{ marginTop: 0, color: "#be185d" }}>
+                      🎵 Canción
+                    </h4>
+                    <iframe
+                      width="100%"
+                      height="160"
+                      src="https://www.youtube.com/embed/8aRor905cCw"
+                      frameBorder="0"
+                      style={{ borderRadius: "12px" }}
+                    ></iframe>
+                  </div>
+                  <div style={styles.sideCardInspiration}>
+                    <h3 style={{ marginTop: 0, color: "#92400e" }}>
+                      💡 Sabiduría Módulo 1
+                    </h3>
+                    <p
+                      style={{
+                        fontStyle: "italic",
+                        fontSize: "0.95rem",
+                        color: "#451a03",
+                      }}
+                    >
+                      "No ahorres lo que queda después de gastar, gasta lo que
+                      queda después de ahorrar."
+                    </p>
+                    <hr
+                      style={{
+                        border: "0.5px solid #fde68a",
+                        margin: "15px 0",
+                      }}
+                    />
+                    <p style={{ fontSize: "0.85rem", color: "#78350f" }}>
+                      <b>Consejo Práctico:</b> Tu mente es tu activo más
+                      valioso. Cambia el "No puedo" por "¿Cómo puedo?".
+                    </p>
+                  </div>
+                  <button
+                    style={{
+                      ...styles.buttonMain,
+                      background:
+                        completed.indexOf(1) !== -1 ? "#4ade80" : "#0f766e",
+                    }}
+                    onClick={() => toggleComplete(1)}
+                  >
+                    {completed.indexOf(1) !== -1
+                      ? "¡Módulo 1 Completado! ✅"
+                      : "Marcar como terminado"}
+                  </button>
+                  {completed.indexOf(1) !== -1 && (
+                    <div style={styles.congratsLabel}>
+                      Llevas el {progress}% del curso
+                    </div>
+                  )}
+                </aside>
+                {/* 👇 BOTONES DE NAVEGACIÓN SMART U 👇 */}
+<div style={{ 
+  marginTop: '30px', 
+  display: 'flex', 
+  gap: '12px', 
+  flexDirection: window.innerWidth < 768 ? 'column' : 'row',
+  width: '100%',
+  padding: '10px'
+}}>
+  <button 
+    onClick={() => {
+      setCurrentModule(0);
+      setIsWelcomeActive(true);
+    }}
+    style={{
+      padding: '14px',
+      background: '#334155', 
+      color: 'white',
+      borderRadius: '12px',
+      flex: 1,
+      border: 'none',
+      cursor: 'pointer',
+      fontWeight: 'bold',
+      fontSize: '1rem'
+    }}
+  >
+    ⬅ Volver al Menú Principal
+  </button>
+
+  {currentModule < 6 && (
+    <button 
+      onClick={() => setCurrentModule(currentModule + 1)}
+      style={{
+        padding: '14px',
+        background: '#4ade80', 
+        color: '#064e4b',
+        borderRadius: '12px',
+        flex: 1,
+        border: 'none',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: '1rem',
+        boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+      }}
+    >
+      Siguiente Módulo ({(currentModule + 1)}) ➡
+    </button>
+  )}
+</div>
+              </div>
+            )}
+
+            {currentModule === 2 && (
               </div>
             )}
 
@@ -1506,6 +1992,223 @@ export default function App() {
                     </div>
                   )}
                 </aside>
+                  {currentModule === 1 && (
+              <div style={styles.grid}>
+                <section style={styles.contentCard}>
+                  <div style={styles.badge}>MÓDULO 1</div>
+                  <h2 style={{ color: "#0f766e", marginTop: "10px" }}>
+                    🧠 Rompiendo Creencias
+                  </h2>
+                  <div style={styles.materialBox}>
+                    <h3
+                      style={{
+                        marginTop: 0,
+                        color: "#166534",
+                        marginBottom: "15px",
+                      }}
+                    >
+                      📖 Lección Maestra
+                    </h3>
+                    <iframe
+                      src="https://docs.google.com/presentation/d/14PKp_3dO0j6NCtKk6xqkHchELUM9kAEKIb8enqd9jBs/embed"
+                      frameBorder="0"
+                      width="100%"
+                      height="400"
+                      allowFullScreen
+                      style={{ borderRadius: "10px" }}
+                    ></iframe>
+                  </div>
+                  <div style={{ marginBottom: "30px" }}>
+                    <h4 style={{ color: "#0f766e", marginBottom: "10px" }}>
+                      🎬 Clase: Finanzas desde Cero
+                    </h4>
+                    <iframe
+                      width="100%"
+                      height="315"
+                      src="https://www.youtube.com/embed/3__mS7160ZY"
+                      frameBorder="0"
+                      allowFullScreen
+                      style={{ borderRadius: "15px", background: "#000" }}
+                    ></iframe>
+                  </div>
+                  <div style={styles.toolArea}>
+                    <h3 style={{ marginTop: 0 }}>
+                      🛠️ Actividad: Muro de Sueños
+                    </h3>
+                    <p
+                      style={{
+                        fontStyle: "italic",
+                        fontSize: "0.85rem",
+                        color: "#64748b",
+                        marginBottom: "15px",
+                      }}
+                    >
+                      <b>Objetivo:</b> Identificar y clasificar tus metas para
+                      darles prioridad y un valor económico real.
+                    </p>
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "1fr 1fr",
+                        gap: "20px",
+                      }}
+                    >
+                      <div>
+                        <h4 style={styles.metaTitle}>⏳ Corto Plazo</h4>
+                        <div style={{ display: "flex", gap: "5px" }}>
+                          <input
+                            style={styles.inputSmall}
+                            placeholder="Ej: Laptop"
+                            value={inputCorto}
+                            onChange={(e) => setInputCorto(e.target.value)}
+                          />
+                          <button
+                            style={styles.btnAdd}
+                            onClick={agregarMetaCorto}
+                          >
+                            +
+                          </button>
+                        </div>
+                        {metasCorto.map((m, i) => (
+                          <div key={i} style={styles.metaTag}>
+                            ⚡ {m}
+                          </div>
+                        ))}
+                      </div>
+                      <div>
+                        <h4 style={styles.metaTitle}>🚀 Largo Plazo</h4>
+                        <div style={{ display: "flex", gap: "5px" }}>
+                          <input
+                            style={styles.inputSmall}
+                            placeholder="Ej: Libertad"
+                            value={inputLargo}
+                            onChange={(e) => setInputLargo(e.target.value)}
+                          />
+                          <button
+                            style={styles.btnAdd}
+                            onClick={agregarMetaLargo}
+                          >
+                            +
+                          </button>
+                        </div>
+                        {metasLargo.map((m, i) => (
+                          <div key={i} style={styles.metaTag}>
+                            💎 {m}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <aside style={styles.sideCol}>
+                  <div style={styles.musicCard}>
+                    <h4 style={{ marginTop: 0, color: "#be185d" }}>
+                      🎵 Canción
+                    </h4>
+                    <iframe
+                      width="100%"
+                      height="160"
+                      src="https://www.youtube.com/embed/8aRor905cCw"
+                      frameBorder="0"
+                      style={{ borderRadius: "12px" }}
+                    ></iframe>
+                  </div>
+                  <div style={styles.sideCardInspiration}>
+                    <h3 style={{ marginTop: 0, color: "#92400e" }}>
+                      💡 Sabiduría Módulo 1
+                    </h3>
+                    <p
+                      style={{
+                        fontStyle: "italic",
+                        fontSize: "0.95rem",
+                        color: "#451a03",
+                      }}
+                    >
+                      "No ahorres lo que queda después de gastar, gasta lo que
+                      queda después de ahorrar."
+                    </p>
+                    <hr
+                      style={{
+                        border: "0.5px solid #fde68a",
+                        margin: "15px 0",
+                      }}
+                    />
+                    <p style={{ fontSize: "0.85rem", color: "#78350f" }}>
+                      <b>Consejo Práctico:</b> Tu mente es tu activo más
+                      valioso. Cambia el "No puedo" por "¿Cómo puedo?".
+                    </p>
+                  </div>
+                  <button
+                    style={{
+                      ...styles.buttonMain,
+                      background:
+                        completed.indexOf(1) !== -1 ? "#4ade80" : "#0f766e",
+                    }}
+                    onClick={() => toggleComplete(1)}
+                  >
+                    {completed.indexOf(1) !== -1
+                      ? "¡Módulo 1 Completado! ✅"
+                      : "Marcar como terminado"}
+                  </button>
+                  {completed.indexOf(1) !== -1 && (
+                    <div style={styles.congratsLabel}>
+                      Llevas el {progress}% del curso
+                    </div>
+                  )}
+                </aside>
+                {/* 👇 BOTONES DE NAVEGACIÓN SMART U 👇 */}
+<div style={{ 
+  marginTop: '30px', 
+  display: 'flex', 
+  gap: '12px', 
+  flexDirection: window.innerWidth < 768 ? 'column' : 'row',
+  width: '100%',
+  padding: '10px'
+}}>
+  <button 
+    onClick={() => {
+      setCurrentModule(0);
+      setIsWelcomeActive(true);
+    }}
+    style={{
+      padding: '14px',
+      background: '#334155', 
+      color: 'white',
+      borderRadius: '12px',
+      flex: 1,
+      border: 'none',
+      cursor: 'pointer',
+      fontWeight: 'bold',
+      fontSize: '1rem'
+    }}
+  >
+    ⬅ Volver al Menú Principal
+  </button>
+
+  {currentModule < 6 && (
+    <button 
+      onClick={() => setCurrentModule(currentModule + 1)}
+      style={{
+        padding: '14px',
+        background: '#4ade80', 
+        color: '#064e4b',
+        borderRadius: '12px',
+        flex: 1,
+        border: 'none',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+        fontSize: '1rem',
+        boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+      }}
+    >
+      Siguiente Módulo ({(currentModule + 1)}) ➡
+    </button>
+  )}
+</div>
+              </div>
+            )}
+
+            {currentModule === 2 && (
               </div>
             )}
 
@@ -1961,6 +2664,34 @@ Firma Digital: Smart U Graduate
                     </div>
                   )}
                 </aside>
+                {/* 👇 BOTONES FINALES SMART U (Solo para el Módulo 6) 👇 */}
+<div style={{ 
+  marginTop: '30px', 
+  display: 'flex', 
+  flexDirection: 'column', // En el final, uno solo centrado queda mejor
+  width: '100%',
+  padding: '10px'
+}}>
+  <button 
+    onClick={() => {
+      setCurrentModule(0);
+      setIsWelcomeActive(true);
+    }}
+    style={{
+      padding: '16px',
+      background: '#334155', 
+      color: 'white',
+      borderRadius: '12px',
+      border: 'none',
+      cursor: 'pointer',
+      fontWeight: 'bold',
+      fontSize: '1.1rem',
+      boxShadow: '0 4px 10px rgba(0,0,0,0.2)'
+    }}
+  >
+    🏆 ¡Curso Terminado! Volver al Inicio
+  </button>
+</div>
               </div>
             )}
 
