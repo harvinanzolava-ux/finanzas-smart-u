@@ -1052,10 +1052,6 @@ export default function App() {
               </div>
             )}
 
-            {currentModule === 2 && (
-              </div>
-            )}
-
             {currentModule === 3 && (
               <div style={styles.grid}>
                 <section style={styles.contentCard}>
