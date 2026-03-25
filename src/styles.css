@@ -1,34 +1,54 @@
-/* --- AJUSTES PARA EL CUERPO PRINCIPAL --- */
+/* --- 1. AJUSTES GLOBALES (Evitan que la pantalla "baile") --- */
+* {
+  box-sizing: border-box !important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Prohibido el scroll hacia los lados */
+}
+
+/* --- 2. CUERPO PRINCIPAL --- */
 .App {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
-  margin: 0;
-  padding: 10px; /* Espacio para que el contenido no pegue a los bordes del cel */
   background-color: #f8fafc;
   min-height: 100vh;
+  width: 100%;
+  padding: 10px;
 }
 
-/* --- ESTO ES LO MÁS IMPORTANTE PARA EL CELULAR --- */
-/* Si usas un contenedor con "display: grid", esto lo vuelve una sola columna en móvil */
+/* --- 3. CONTENEDOR FLEXIBLE (PC y Móvil) --- */
 .grid-container { 
   display: flex;
-  flex-direction: column; 
+  flex-direction: column; /* Por defecto uno debajo de otro (Móvil) */
   gap: 15px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* --- AJUSTE AUTOMÁTICO DE VIDEOS Y SLIDES --- */
-iframe {
-  width: 100% !important; /* Se estira al ancho del cel */
-  height: auto;
-  aspect-ratio: 16 / 9; /* Mantiene la forma del video */
-  border-radius: 12px;
-  border: none;
+/* --- 4. AJUSTE PARA CUALQUIER GRID EN EL JS --- */
+/* Si en tu React usaste style={{display: 'grid'}}, esto lo arregla para celular */
+[style*="display: grid"], [style*="display:grid"] {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
 }
 
-/* --- TARJETAS DE CONTENIDO --- */
+/* --- 5. VIDEOS Y PRESENTACIONES --- */
+iframe {
+  width: 100% !important; 
+  height: auto;
+  aspect-ratio: 16 / 9; 
+  border-radius: 12px;
+  border: none;
+  max-width: 100%;
+}
+
+/* --- 6. TARJETAS DE CONTENIDO --- */
 .content-card {
   background: white;
   padding: 15px;
@@ -36,25 +56,31 @@ iframe {
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   margin-bottom: 15px;
   width: 100%;
-  box-sizing: border-box; /* Evita que el padding "infle" la tarjeta y cause scroll horizontal */
 }
 
-/* --- BOTONES GRANDES (Fáciles de tocar con el dedo) --- */
+/* --- 7. BOTONES --- */
 button {
-  width: 100%; /* Botones a lo ancho en móvil */
-  padding: 12px;
+  width: 100%; /* Botones grandes en el celular */
+  padding: 14px;
   font-size: 1rem;
   border-radius: 10px;
   cursor: pointer;
   margin-top: 10px;
 }
 
-/* --- MEDIA QUERY (Solo aplica cambios si la pantalla es de escritorio) --- */
+/* --- 8. REGLAS PARA COMPUTADORA (Pantallas grandes) --- */
 @media (min-width: 768px) {
   .grid-container {
     flex-direction: row; /* En PC se ponen uno al lado del otro */
   }
+
+  /* Si en el JS tenías 2 columnas, esto las devuelve a su sitio en PC */
+  [style*="display: grid"], [style*="display:grid"] {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr; /* O el diseño que tenías antes */
+  }
+
   button {
-    width: auto; /* En PC los botones recuperan su tamaño normal */
+    width: auto; /* En PC los botones vuelven a su tamaño normal */
   }
 }
