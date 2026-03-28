@@ -1,5 +1,4 @@
-import React, { useState, useMemo } from "react";
-import "./styles.css";
+import React, { useState, useMemo, useEffect } from "react";
 
 export default function App() {
   const [user, setUser] = useState<string | null>(null);
@@ -12,7 +11,8 @@ export default function App() {
 
   // --- ESTADO PARA LA ZONA VIP ---
   const [showVipZone, setShowVipZone] = useState<boolean>(false);
-
+  // 📱 MENÚ MÓVIL (SIDEBAR)
+  const [menuOpen, setMenuOpen] = useState(false);
   // --- ESTADOS MÓDULO 1 ---
   const [inputCorto, setInputCorto] = useState<string>("");
   const [inputLargo, setInputLargo] = useState<string>("");
@@ -37,6 +37,38 @@ export default function App() {
   const [mercadoInput, setMercadoInput] = useState("");
   const [precioInput, setPrecioInput] = useState("");
   const [horasInput, setHorasInput] = useState("");
+  useEffect(() => {
+    const savedCompleted = localStorage.getItem("completedModules");
+    if (savedCompleted) {
+      setCompleted(JSON.parse(savedCompleted));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("completedModules", JSON.stringify(completed));
+  }, [completed]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("decretoUsuario");
+    if (saved) {
+      const textarea = document.getElementById(
+        "decretoTexto"
+      ) as HTMLTextAreaElement;
+      if (textarea) textarea.value = saved;
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   // Lógica de Calculadoras
   const numIngreso = parseFloat(ingresosInput) || 0;
@@ -47,8 +79,11 @@ export default function App() {
   const totalDeudas = deudas.reduce((acc, curr) => acc + curr.monto, 0);
 
   // Lógica Viabilidad Módulo 5
-  const ingresoMensualExtra =
-    (parseFloat(precioInput) || 0) * (parseFloat(horasInput) || 0);
+  const precio = Number(precioInput) || 0;
+  const ventas = Number(horasInput) || 0;
+
+  const ingresoMensualExtra = precio * ventas;
+  (parseFloat(precioInput) || 0) * (parseFloat(horasInput) || 0);
 
   const progress = useMemo(() => {
     return completed.length > 0 ? Math.round((completed.length / 6) * 100) : 0;
@@ -197,6 +232,28 @@ export default function App() {
 
   return (
     <div style={styles.appContainer}>
+      {/* 📱 BOTÓN MENÚ MÓVIL */}
+      {isMobile && (
+        <button
+          onClick={() => setMenuOpen(true)}
+          style={{
+            position: "fixed",
+            top: "15px",
+            left: "15px",
+            zIndex: 1000,
+            background: "#0f766e",
+            color: "white",
+            border: "none",
+            borderRadius: "10px",
+            padding: "10px 14px",
+            fontSize: "1.2rem",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+            cursor: "pointer",
+          }}
+        >
+          ☰
+        </button>
+      )}
       <style>{`
         @keyframes bounce {
           0%, 100% { transform: translateY(0); }
@@ -216,7 +273,39 @@ export default function App() {
         }
       `}</style>
 
-      <nav style={styles.sidebar}>
+      <nav
+        style={{
+          ...styles.sidebar,
+          position: isMobile ? "fixed" : "relative",
+          top: 0,
+          left: isMobile ? (menuOpen ? "0" : "-100%") : "0",
+          height: "100vh",
+          zIndex: 999,
+          transition: "left 0.3s ease-in-out",
+          overflowY: "auto", // 🔥 PERMITE SCROLL
+          paddingBottom: "100px", // 🔥 ESPACIO EXTRA ABAJO
+          scrollBehavior: "smooth",
+        }}
+      >
+        {/* ❌ BOTÓN CERRAR */}
+        {isMobile && (
+          <button
+            onClick={() => setMenuOpen(false)}
+            style={{
+              marginBottom: "20px",
+              background: "white",
+              color: "#0f766e",
+              border: "none",
+              borderRadius: "8px",
+              padding: "6px 10px",
+              cursor: "pointer",
+              fontWeight: "bold",
+            }}
+          >
+            ✕ Cerrar
+          </button>
+        )}
+
         <div style={styles.logoBox}>🎓 Smart U Finanzas</div>
 
         <div style={{ marginBottom: "25px", textAlign: "center" }}>
@@ -291,7 +380,12 @@ export default function App() {
         ></div>
 
         {/* COMIENZO DE LOS MÓDULOS */}
-        <div style={{ flex: 1 }}>
+        <div
+          style={{
+            flex: 1,
+            overflowY: "auto",
+          }}
+        >
           {[1, 2, 3, 4, 5, 6].map((num) => {
             // Definimos el nombre según el número
             const moduleName =
@@ -1723,6 +1817,7 @@ export default function App() {
                               "decretoTexto"
                             ) as HTMLTextAreaElement
                           ).value;
+                          localStorage.setItem("decretoUsuario", texto);
                           if (!texto)
                             return alert(
                               "Escribe tu compromiso antes de descargarlo."
@@ -2734,6 +2829,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     padding: "30px",
     borderRadius: "24px",
     boxShadow: "0 10px 25px rgba(0,0,0,0.05)",
+    flex: "1 1 500px", // 👈 SE ADAPTA AL ANCHO
   },
   materialBox: {
     background: "#f0fdf4",
@@ -2801,6 +2897,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     flexDirection: "column",
     gap: "20px",
     width: "300px",
+    flex: "1 1 300px", // 👈 RESPONSIVE AUTOMÁTICO
   },
   musicCard: {
     background: "white",
@@ -2823,13 +2920,10 @@ const styles: { [key: string]: React.CSSProperties } = {
     cursor: "pointer",
     fontSize: "1rem",
   },
-  grid: { display: "flex", gap: "30px" },
-  calcResult: {
-    background: "white",
-    padding: "10px",
-    borderRadius: "10px",
-    marginTop: "10px",
-    border: "1px solid #e2e8f0",
+  grid: {
+    display: "flex",
+    gap: "30px",
+    flexWrap: "wrap", // 👈 ESTO HACE LA MAGIA
   },
   avanzadoCard: { display: "flex", flexDirection: "column", gap: "5px" },
   labelAvanzado: { fontSize: "0.8rem", color: "#64748b", fontWeight: "600" },
