@@ -1,12 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import "./styles.css"; // <--- ¡ESTA ES LA LÍNEA MÁGICA QUE FALTABA!
+import "./styles.css";
 
-const rootElement = document.getElementById("root");
-const root = ReactDOM.createRoot(rootElement);
-
-root.render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
