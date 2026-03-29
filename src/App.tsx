@@ -425,7 +425,16 @@ export default function App() {
         </div>
       </nav>
 
-      <main style={styles.main}>
+     <main
+  style={{
+    ...styles.main,
+
+    // 🔥 ESTO ES LO QUE TE ARREGLA TODO
+    marginLeft: isMobile ? "0px" : "260px",
+
+    width: "100%",
+  }}
+>
         <header style={styles.welcomeHeader}>
           <h2 style={{ margin: 0, color: "#0f766e" }}>{`¡Hola, ${user}!`}</h2>
           <p style={{ margin: "5px 0 0 0", color: "#64749b" }}>
