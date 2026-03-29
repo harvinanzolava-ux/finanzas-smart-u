@@ -640,6 +640,7 @@ export default function App() {
                       <p style={{ fontWeight: "bold", color: "#0f766e" }}>
   ⚠️ Si no defines tus metas, tu dinero no tiene dirección.
 </p>
+                      >
                       🛠️ Actividad: Muro de Sueños
                     </h3>
                     <p
