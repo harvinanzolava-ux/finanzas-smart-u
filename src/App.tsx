@@ -438,7 +438,7 @@ export default function App() {
 >
         <header style={styles.welcomeHeader}>
           <h2 style={{  textAlign: "center", color: "#0f766e" }}>{`¡Hola, ${user}!`}</h2>
-          <p style={{ margin: "5px 0 0 0", color: "#64749b" }}>
+          <p style={{ textAlign: "center", color: "#64749b" }}>
             Curso: Finanzas Inteligentes
           </p>
         </header>
