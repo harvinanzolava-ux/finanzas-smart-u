@@ -640,7 +640,7 @@ export default function App() {
                       <p style={{ fontWeight: "normal", color: "#0f766e",  marginBottom: "15px" }}>
   ⚠️ Si no defines tus metas, tu dinero no tiene dirección.
 </p>
-                       <p style={{ fontWeight: "normal", color: "#0f766e",  marginBottom: "15px" }}>
+                       <p style={{ fontWeight: "normal", color: "#010203",  marginBottom: "15px" }}>
   
                       🛠️ Actividad: Muro de Sueños
 </p>
