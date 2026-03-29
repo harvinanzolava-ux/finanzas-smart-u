@@ -598,7 +598,7 @@ export default function App() {
     border: "1px solid #ccfbf1",
   }}
 >
-  <p style={{ margin: 0, color: "#065f46", fontSize: "0.95rem" }}>
+  <p style={{ margin: 0, color: "#065f46", fontSize: "1.25rem" }}>
     💡 En este módulo vas a entender cómo tu forma de pensar afecta tu dinero.
     Antes de ganar más… necesitas pensar mejor.
   </p>
@@ -724,14 +724,14 @@ export default function App() {
                     ></iframe>
                   </div>
                   <div style={styles.sideCardInspiration}>
-                    <h3 style={{ marginTop: 0, color: "#92400e" }}>
+                    <h3 style={{ marginTop: 0, color: "#92400e", marginBottom: "15px" }}>
                       💡 Sabiduría Módulo 1
                     </h3>
                     <p
                       style={{
                         fontStyle: "italic",
                         fontSize: "0.95rem",
-                        color: "#451a03",
+                        color: "#451a03", 
                       }}
                     >
                       "No ahorres lo que queda después de gastar, gasta lo que
