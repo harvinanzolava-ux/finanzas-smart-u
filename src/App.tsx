@@ -444,7 +444,6 @@ export default function App() {
         </header>
         {/* --- 1. INICIO DE LA LÓGICA DE BIENVENIDA --- */}
         {isWelcomeActive ? (
-
   <div
     style={{
       padding: isMobile ? "30px 15px" : "60px 40px",
@@ -457,10 +456,9 @@ export default function App() {
       marginLeft: "auto",
       marginRight: "auto",
       position: "relative",
-      boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
     }}
   >
-    {/* 🔴 BOTÓN CERRAR SESIÓN */}
+    {/* BOTÓN CERRAR */}
     <button
       onClick={() => {
         if (confirm("¿Estás seguro que deseas cerrar sesión en Smart U?")) {
@@ -484,88 +482,105 @@ export default function App() {
         gap: "6px",
       }}
     >
-      <span>🚪</span>
-      <span>Cerrar</span>
+      🚪 Cerrar
     </button>
 
-```
-{/* 🚀 ICONO */}
-<span style={{ fontSize: isMobile ? "2.5rem" : "4rem" }}>🚀</span>
+    {/* ICONO */}
+    <span style={{ fontSize: isMobile ? "2.5rem" : "4rem" }}>🚀</span>
 
-{/* 🧠 TÍTULO */}
-<h1
-  style={{
-    color: "#0f766e",
-    fontSize: isMobile ? "1.8rem" : "2.8rem",
-    marginBottom: "15px",
-    lineHeight: "1.2",
-  }}
->
-  Bienvenido a Smart U Finanzas
-</h1>
+    {/* TÍTULO */}
+    <h1
+      style={{
+        color: "#0f766e",
+        fontSize: isMobile ? "1.8rem" : "2.8rem",
+        marginBottom: "15px",
+        lineHeight: "1.2",
+      }}
+    >
+      Bienvenido a Smart U Finanzas
+    </h1>
 
-{/* 📄 TEXTO */}
-<p
-  style={{
-    fontSize: isMobile ? "0.95rem" : "1.2rem",
-    color: "#64748b",
-    maxWidth: "600px",
-    margin: "0 auto 30px",
-    lineHeight: "1.6",
-  }}
->
-  La plataforma donde los universitarios dominan su dinero. Estás a
-  un clic de empezar tu transformación financiera.
-</p>
+    {/* TEXTO */}
+    <p
+      style={{
+        fontSize: isMobile ? "0.95rem" : "1.2rem",
+        color: "#64748b",
+        maxWidth: "600px",
+        margin: "0 auto 30px",
+        lineHeight: "1.6",
+      }}
+    >
+      La plataforma donde los universitarios dominan su dinero. Estás a
+      un clic de empezar tu transformación financiera.
+    </p>
 
-{/* 📦 BLOQUES */}
-<div
-  style={{
-    display: "flex",
-    flexDirection: isMobile ? "column" : "row",
-    justifyContent: "center",
-    gap: "15px",
-    alignItems: "center",
-  }}
->
-  <div
-    style={{
-      background: "#f0fdfa",
-      padding: "15px 25px",
-      borderRadius: "15px",
-      border: "1px solid #ccfbf1",
-      width: isMobile ? "100%" : "auto",
-    }}
-  >
-    <div style={{ fontWeight: "bold", color: "#0f766e" }}>
-      6 Módulos
+    {/* BLOQUES */}
+    <div
+      style={{
+        display: "flex",
+        flexDirection: isMobile ? "column" : "row",
+        justifyContent: "center",
+        gap: "15px",
+        marginBottom: "30px",
+      }}
+    >
+      <div
+        style={{
+          background: "#f0fdfa",
+          padding: "15px 25px",
+          borderRadius: "15px",
+          border: "1px solid #ccfbf1",
+          width: isMobile ? "100%" : "auto",
+        }}
+      >
+        <div style={{ fontWeight: "bold", color: "#0f766e" }}>
+          6 Módulos
+        </div>
+        <div style={{ fontSize: "0.8rem" }}>
+          De Novato a Inversionista
+        </div>
+      </div>
+
+      <div
+        style={{
+          background: "#f0fdfa",
+          padding: "15px 25px",
+          borderRadius: "15px",
+          border: "1px solid #ccfbf1",
+          width: isMobile ? "100%" : "auto",
+        }}
+      >
+        <div style={{ fontWeight: "bold", color: "#0f766e" }}>
+          Zona VIP
+        </div>
+        <div style={{ fontSize: "0.8rem" }}>
+          Recursos Exclusivos
+        </div>
+      </div>
     </div>
-    <div style={{ fontSize: "0.8rem" }}>
-      De Novato a Inversionista
-    </div>
+
+    {/* BOTÓN EMPEZAR */}
+    <button
+      onClick={() => {
+        setIsWelcomeActive(false);
+        setCurrentModule(1);
+      }}
+      style={{
+        padding: isMobile ? "14px 20px" : "18px 50px",
+        background: "#0f766e",
+        color: "white",
+        border: "none",
+        borderRadius: "35px",
+        fontSize: isMobile ? "1rem" : "1.2rem",
+        fontWeight: "bold",
+        cursor: "pointer",
+        width: isMobile ? "100%" : "auto",
+      }}
+    >
+      ¡EMPEZAR EL VIAJE! 🏁
+    </button>
   </div>
-
-  <div
-    style={{
-      background: "#f0fdfa",
-      padding: "15px 25px",
-      borderRadius: "15px",
-      border: "1px solid #ccfbf1",
-      width: isMobile ? "100%" : "auto",
-    }}
-  >
-    <div style={{ fontWeight: "bold", color: "#0f766e" }}>
-      Zona VIP
-    </div>
-    <div style={{ fontSize: "0.8rem" }}>
-      Recursos Exclusivos
-    </div>
-  </div>
-</div>
-```
-
-  </div>
-        ) : (
+) : (
           /* --- 2. SI LA BIENVENIDA NO ESTÁ ACTIVA, SE MUESTRAN LOS MÓDULOS --- */
           <>
             {currentModule === 1 && (
