@@ -2795,10 +2795,10 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
  main: {
   flex: 1,
-  padding: isMobile ? "10px" : "40px", // 🔥 clave
+  padding: "10px", // 🔥 ESTE ES EL FIX REAL
   overflowY: "auto",
-  width: "100%",       // 🔥 importante
-  maxWidth: "100%",    // 🔥 importante
+  width: "100%",
+  maxWidth: "100%",
 },
   badge: {
     background: "#ccfbf1",
