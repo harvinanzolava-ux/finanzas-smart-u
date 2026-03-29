@@ -637,10 +637,9 @@ export default function App() {
                   </div>
                   <div style={styles.toolArea}>
                     <h3 style={{ marginTop: 0 }}>
-                      <p style={{ fontWeight: "bold", color: "#0f766e" }}>
+                      <p style={{ fontWeight: "bold", color: "#0f766e",  marginBottom: "15px" }}>
   ⚠️ Si no defines tus metas, tu dinero no tiene dirección.
 </p>
-                      >
                       🛠️ Actividad: Muro de Sueños
                     </h3>
                     <p
