@@ -588,7 +588,7 @@ export default function App() {
                 <section style={styles.contentCard}>
                   <div style={styles.badge}>MÓDULO 1</div>
                   <h2 style={{ color: "#0f766e", marginTop: "10px" }}>
-                    <h2>🧠 Rompiendo Creencias</h2>
+                  🧠 Módulo 1: Rompiendo Creencias Financieras</h2>
                   <div
   style={{
     background: "#f0fdfa",
