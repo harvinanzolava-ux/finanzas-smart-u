@@ -231,7 +231,12 @@ export default function App() {
   }
 
   return (
-    <div style={styles.appContainer}>
+    <div
+  style={{
+    ...styles.appContainer,
+    flexDirection: isMobile ? "column" : "row", // 🔥 AHORA SÍ FUNCIONA
+  }}
+>
       {/* 📱 BOTÓN MENÚ MÓVIL */}
       {isMobile && (
         <button
@@ -428,10 +433,7 @@ export default function App() {
      <main
   style={{
     ...styles.main,
-
-    // 🔥 ESTO ES LO QUE TE ARREGLA TODO
     marginLeft: isMobile ? "0px" : "260px",
-
     width: "100%",
   }}
 >
