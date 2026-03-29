@@ -234,7 +234,7 @@ export default function App() {
     <div
   style={{
     ...styles.appContainer,
-    flexDirection: isMobile ? "column" : "row", // 🔥 AHORA SÍ FUNCIONA
+    flexDirection: isMobile ? "column" : "row",
   }}
 >
       {/* 📱 BOTÓN MENÚ MÓVIL */}
@@ -430,11 +430,10 @@ export default function App() {
         </div>
       </nav>
 
-     <main
+    <main
   style={{
     ...styles.main,
-    marginLeft: isMobile ? "0px" : "260px",
-    width: "100%",
+    padding: isMobile ? "15px" : "40px",
   }}
 >
         <header style={styles.welcomeHeader}>
@@ -2763,12 +2762,10 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
 
   // --- TUS ESTILOS ORIGINALES (SIN TOCAR) ---
-  appContainer: {
+ appContainer: {
   display: "flex",
-  flexDirection: "row",
-  width: "100vw",
-  height: "100vh",
-  overflow: "hidden",
+  width: "100%",
+  minHeight: "100vh",
 },
   sidebar: {
     width: "260px",
