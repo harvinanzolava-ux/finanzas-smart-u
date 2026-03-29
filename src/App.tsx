@@ -493,12 +493,13 @@ export default function App() {
 
             <span style={{ fontSize: "4rem" }}>🚀</span>
             <h1
-              style={{
-                color: "#0f766e",
-                fontSize: "2.8rem",
-                marginBottom: "15px",
-              }}
-            >
+  style={{
+    color: "#0f766e",
+    fontSize: isMobile ? "1.8rem" : "2.8rem", // 🔥 clave
+    marginBottom: "15px",
+    lineHeight: "1.2",
+  }}
+>
               Bienvenido a Smart U Finanzas
             </h1>
             <p
