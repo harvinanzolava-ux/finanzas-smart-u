@@ -637,6 +637,9 @@ export default function App() {
                   </div>
                   <div style={styles.toolArea}>
                     <h3 style={{ marginTop: 0 }}>
+                      <p style={{ fontWeight: "bold", color: "#0f766e" }}>
+  ⚠️ Si no defines tus metas, tu dinero no tiene dirección.
+</p>
                       🛠️ Actividad: Muro de Sueños
                     </h3>
                     <p
@@ -679,9 +682,6 @@ export default function App() {
                           </div>
                         ))}
                       </div>
-                      <p style={{ fontWeight: "bold", color: "#0f766e" }}>
-  ⚠️ Si no defines tus metas, tu dinero no tiene dirección.
-</p>
                       <div>
                         <h4 style={styles.metaTitle}>🚀 Largo Plazo</h4>
                         <div style={{ display: "flex", gap: "5px" }}>
