@@ -436,15 +436,17 @@ export default function App() {
         {isWelcomeActive ? (
           <div
             style={{
-              padding: "60px 40px",
-              textAlign: "center",
-              background: "white",
-              borderRadius: "30px",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
-              margin: "20px",
-              position: "relative", // Mantener esto
-            }}
-          >
+               padding: isMobile ? "40px 20px" : "60px 40px",
+    textAlign: "center",
+    background: "white",
+    borderRadius: "30px",
+    margin: "20px",
+    maxWidth: "700px", // 🔥 limita ancho en PC
+    width: "100%",     // 🔥 usa todo el ancho en móvil
+    marginLeft: "auto",
+    marginRight: "auto",
+  }}
+>
             {/* 👇 BOTÓN SALIR - UPGRADE ESTÉTICO PREMIUM 👇 */}
             <button
               onClick={() => {
