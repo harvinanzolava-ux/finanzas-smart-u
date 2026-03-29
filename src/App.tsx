@@ -707,7 +707,7 @@ export default function App() {
                 <aside style={styles.sideCol}>
                   <div style={styles.musicCard}>
                     <h4 style={{ marginTop: 0, color: "#be185d" }}>
-                      🎵 Canción
+                      🎵 Algo de motivación 
                     </h4>
                     <iframe
                       width="100%"
