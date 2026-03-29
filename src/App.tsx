@@ -2765,7 +2765,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   // --- TUS ESTILOS ORIGINALES (SIN TOCAR) ---
   appContainer: {
   display: "flex",
-  flexDirection: isMobile ? "column" : "row", // 🔥 ESTA LÍNEA CAMBIA TODO
+  flexDirection: "row",
   width: "100vw",
   height: "100vh",
   overflow: "hidden",
