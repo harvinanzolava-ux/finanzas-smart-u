@@ -587,7 +587,7 @@ export default function App() {
               <div style={styles.grid}>
                 <section style={styles.contentCard}>
                   <div style={styles.badge}>MÓDULO 1</div>
-                  <h2 style={{ color: "#0f766e", marginTop: "10px" }}>
+                  <h2 style={{ color: "#0f766e", marginTop: "10px", marginBottom: "15px" }}>
                   🧠 Módulo 1: Rompiendo Creencias Financieras</h2>
                   <div
   style={{
@@ -598,7 +598,7 @@ export default function App() {
     border: "1px solid #ccfbf1",
   }}
 >
-  <p style={{ margin: 0, color: "#065f46", fontSize: "1.25rem" }}>
+  <p style={{ margin: 0, color: "#065f46", fontSize: "1rem" }}>
     💡 En este módulo vas a entender cómo tu forma de pensar afecta tu dinero.
     Antes de ganar más… necesitas pensar mejor.
   </p>
