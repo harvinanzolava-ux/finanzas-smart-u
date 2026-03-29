@@ -503,14 +503,14 @@ export default function App() {
               Bienvenido a Smart U Finanzas
             </h1>
             <p
-              style={{
-                fontSize: "1.2rem",
-                color: "#64748b",
-                maxWidth: "600px",
-                margin: "0 auto 30px",
-                lineHeight: "1.6",
-              }}
-            >
+  style={{
+    fontSize: isMobile ? "0.95rem" : "1.2rem",
+    color: "#64748b",
+    maxWidth: "600px",
+    margin: "0 auto 30px",
+    lineHeight: "1.6",
+  }}
+>
               La plataforma donde los universitarios dominan su dinero. Estás a
               un clic de empezar tu transformación financiera.
             </p>
