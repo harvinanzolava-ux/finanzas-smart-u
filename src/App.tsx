@@ -434,75 +434,68 @@ export default function App() {
         </header>
         {/* --- 1. INICIO DE LA LÓGICA DE BIENVENIDA --- */}
         {isWelcomeActive ? (
-          <div
-            style={{
-               padding: isMobile ? "40px 20px" : "60px 40px",
-    textAlign: "center",
-    background: "white",
-    borderRadius: "30px",
-    margin: "20px",
-    maxWidth: "700px", // 🔥 limita ancho en PC
-    width: "100%",     // 🔥 usa todo el ancho en móvil
-    marginLeft: "auto",
-    marginRight: "auto",
-  }}
->
-            {/* 👇 BOTÓN SALIR - UPGRADE ESTÉTICO PREMIUM 👇 */}
-            <button
-              onClick={() => {
-                if (
-                  confirm("¿Estás seguro que deseas cerrar sesión en Smart U?")
-                ) {
-                  window.location.reload();
-                }
-              }}
-              style={{
-                position: "absolute",
-                top: "25px",
-                right: "30px",
-                padding: "10px 20px",
-                background: "#fef2f2", // Un rojo extremadamente clarito (femenino y limpio)
-                border: "1px solid #fee2e2",
-                borderRadius: "15px",
-                color: "#dc2626", // El rojo vibrante de salir
-                fontSize: "0.85rem",
-                fontWeight: "bold",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                transition: "all 0.3s ease",
-                boxShadow: "0 2px 5px rgba(220, 38, 38, 0.05)",
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.background = "#fee2e2";
-                e.currentTarget.style.transform = "translateY(-1px)";
-                e.currentTarget.style.boxShadow =
-                  "0 4px 10px rgba(220, 38, 38, 0.1)";
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.background = "#fef2f2";
-                e.currentTarget.style.transform = "translateY(0px)";
-                e.currentTarget.style.boxShadow =
-                  "0 2px 5px rgba(220, 38, 38, 0.05)";
-              }}
-            >
-              <span style={{ fontSize: "1.1rem" }}>🚪</span>
-              <span>Cerrar Sesión</span>
-            </button>
 
-            <span style={{ fontSize: "4rem" }}>🚀</span>
-            <h1
+  <div
+    style={{
+      padding: isMobile ? "30px 15px" : "60px 40px",
+      textAlign: "center",
+      background: "white",
+      borderRadius: isMobile ? "20px" : "30px",
+      margin: isMobile ? "10px" : "20px",
+      maxWidth: isMobile ? "100%" : "700px",
+      width: "100%",
+      marginLeft: "auto",
+      marginRight: "auto",
+      position: "relative",
+      boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
+    }}
+  >
+    {/* 🔴 BOTÓN CERRAR SESIÓN */}
+    <button
+      onClick={() => {
+        if (confirm("¿Estás seguro que deseas cerrar sesión en Smart U?")) {
+          window.location.reload();
+        }
+      }}
+      style={{
+        position: "absolute",
+        top: isMobile ? "10px" : "25px",
+        right: isMobile ? "10px" : "30px",
+        padding: isMobile ? "6px 10px" : "10px 20px",
+        background: "#fef2f2",
+        border: "1px solid #fee2e2",
+        borderRadius: "12px",
+        color: "#dc2626",
+        fontSize: isMobile ? "0.7rem" : "0.85rem",
+        fontWeight: "bold",
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        gap: "6px",
+      }}
+    >
+      <span>🚪</span>
+      <span>Cerrar</span>
+    </button>
+
+```
+{/* 🚀 ICONO */}
+<span style={{ fontSize: isMobile ? "2.5rem" : "4rem" }}>🚀</span>
+
+{/* 🧠 TÍTULO */}
+<h1
   style={{
     color: "#0f766e",
-    fontSize: isMobile ? "1.8rem" : "2.8rem", // 🔥 clave
+    fontSize: isMobile ? "1.8rem" : "2.8rem",
     marginBottom: "15px",
     lineHeight: "1.2",
   }}
 >
-              Bienvenido a Smart U Finanzas
-            </h1>
-            <p
+  Bienvenido a Smart U Finanzas
+</h1>
+
+{/* 📄 TEXTO */}
+<p
   style={{
     fontSize: isMobile ? "0.95rem" : "1.2rem",
     color: "#64748b",
@@ -511,69 +504,57 @@ export default function App() {
     lineHeight: "1.6",
   }}
 >
-              La plataforma donde los universitarios dominan su dinero. Estás a
-              un clic de empezar tu transformación financiera.
-            </p>
+  La plataforma donde los universitarios dominan su dinero. Estás a
+  un clic de empezar tu transformación financiera.
+</p>
 
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: "20px",
-                marginBottom: "40px",
-              }}
-            >
-              <div
-                style={{
-                  background: "#f0fdfa",
-                  padding: "15px 25px",
-                  borderRadius: "15px",
-                  border: "1px solid #ccfbf1",
-                }}
-              >
-                <div style={{ fontWeight: "bold", color: "#0f766e" }}>
-                  6 Módulos
-                </div>
-                <div style={{ fontSize: "0.8rem" }}>
-                  De Novato a Inversionista
-                </div>
-              </div>
-              <div
-                style={{
-                  background: "#f0fdfa",
-                  padding: "15px 25px",
-                  borderRadius: "15px",
-                  border: "1px solid #ccfbf1",
-                }}
-              >
-                <div style={{ fontWeight: "bold", color: "#0f766e" }}>
-                  Zona VIP
-                </div>
-                <div style={{ fontSize: "0.8rem" }}>Recursos Exclusivos</div>
-              </div>
-            </div>
+{/* 📦 BLOQUES */}
+<div
+  style={{
+    display: "flex",
+    flexDirection: isMobile ? "column" : "row",
+    justifyContent: "center",
+    gap: "15px",
+    alignItems: "center",
+  }}
+>
+  <div
+    style={{
+      background: "#f0fdfa",
+      padding: "15px 25px",
+      borderRadius: "15px",
+      border: "1px solid #ccfbf1",
+      width: isMobile ? "100%" : "auto",
+    }}
+  >
+    <div style={{ fontWeight: "bold", color: "#0f766e" }}>
+      6 Módulos
+    </div>
+    <div style={{ fontSize: "0.8rem" }}>
+      De Novato a Inversionista
+    </div>
+  </div>
 
-            <button
-              onClick={() => {
-                setIsWelcomeActive(false);
-                setCurrentModule(1);
-              }}
-              style={{
-                padding: "18px 50px",
-                background: "#0f766e",
-                color: "white",
-                border: "none",
-                borderRadius: "35px",
-                fontSize: "1.2rem",
-                fontWeight: "bold",
-                cursor: "pointer",
-                boxShadow: "0 10px 20px rgba(15, 118, 110, 0.3)",
-                transition: "0.3s",
-              }}
-            >
-              ¡EMPEZAR EL VIAJE! 🏁
-            </button>
-          </div>
+  <div
+    style={{
+      background: "#f0fdfa",
+      padding: "15px 25px",
+      borderRadius: "15px",
+      border: "1px solid #ccfbf1",
+      width: isMobile ? "100%" : "auto",
+    }}
+  >
+    <div style={{ fontWeight: "bold", color: "#0f766e" }}>
+      Zona VIP
+    </div>
+    <div style={{ fontSize: "0.8rem" }}>
+      Recursos Exclusivos
+    </div>
+  </div>
+</div>
+```
+
+  </div>
         ) : (
           /* --- 2. SI LA BIENVENIDA NO ESTÁ ACTIVA, SE MUESTRAN LOS MÓDULOS --- */
           <>
