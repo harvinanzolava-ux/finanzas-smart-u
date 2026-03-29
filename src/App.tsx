@@ -679,6 +679,9 @@ export default function App() {
                           </div>
                         ))}
                       </div>
+                      <p style={{ fontWeight: "bold", color: "#0f766e" }}>
+  ⚠️ Si no defines tus metas, tu dinero no tiene dirección.
+</p>
                       <div>
                         <h4 style={styles.metaTitle}>🚀 Largo Plazo</h4>
                         <div style={{ display: "flex", gap: "5px" }}>
