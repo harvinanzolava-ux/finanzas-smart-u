@@ -2793,12 +2793,13 @@ const styles: { [key: string]: React.CSSProperties } = {
     justifyContent: "space-between",
     alignItems: "center",
   },
-  main: { flex: 1, padding: "40px", overflowY: "auto" },
-  welcomeHeader: {
-    marginBottom: "30px",
-    paddingBottom: "20px",
-    borderBottom: "1px solid #e2e8f0",
-  },
+ main: {
+  flex: 1,
+  padding: isMobile ? "10px" : "40px", // 🔥 clave
+  overflowY: "auto",
+  width: "100%",       // 🔥 importante
+  maxWidth: "100%",    // 🔥 importante
+},
   badge: {
     background: "#ccfbf1",
     color: "#0f766e",
