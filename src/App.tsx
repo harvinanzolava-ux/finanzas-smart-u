@@ -642,7 +642,7 @@ export default function App() {
 </p>
                        <p style={{ fontWeight: "normal", color: "#010203",  marginBottom: "15px" }}>
   
-                      🛠️ Actividad: Muro de Sueños
+                      🛠️  <b>Actividad: Muro de Sueños</b>
 </p>
                     </h3>
                     <p
