@@ -2762,11 +2762,12 @@ const styles: { [key: string]: React.CSSProperties } = {
 
   // --- TUS ESTILOS ORIGINALES (SIN TOCAR) ---
   appContainer: {
-    display: "flex",
-    height: "100vh",
-    background: "#f8fafc",
-    fontFamily: "'Inter', sans-serif",
-  },
+  display: "flex",
+  flexDirection: isMobile ? "column" : "row", // 🔥 ESTA LÍNEA CAMBIA TODO
+  width: "100vw",
+  height: "100vh",
+  overflow: "hidden",
+},
   sidebar: {
     width: "260px",
     background: "#0f766e",
