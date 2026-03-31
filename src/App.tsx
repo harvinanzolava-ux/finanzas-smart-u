@@ -1050,12 +1050,12 @@ export default function App() {
                       style={{
                         marginTop: 0,
                         color: "#166534",
-                        marginBottom: "15px",
+                        marginBottom: "10px",
                       }}
                     >
                       📖 Material: El ABC de la Inversión
                     </h3>
-                    <p style={{ fontSize: "0.85rem", color: "#64748b" }}>
+                    <p style={{ fontSize: "0.85rem", color: "#64748b", marginBottom: "10px" }}>
   💡 Entiende primero las reglas del juego antes de poner tu dinero en riesgo.
 </p>
                     <div
@@ -1115,7 +1115,7 @@ export default function App() {
                         fontStyle: "italic",
                         fontSize: "0.85rem",
                         color: "#64748b",
-                        marginBottom: "15px",
+                        marginBottom: "10px",
                       }}
                     >
                       <b>Objetivo:</b> Saber cuánto dinero debes tener ahorrado
