@@ -929,13 +929,15 @@ export default function App() {
                           🎉 Deseos (30%): <b>${deseos.toLocaleString()}</b>
                         </div>
                         <div
-                          style={{
-                            ...styles.calcResult,
-                            borderLeft: "4px solid #4ade80",
-                          }}
-                        >
-                          💰 Futuro (20%): <b>${futuro.toLocaleString()}</b>
-                          {/* 📊 BARRA VISUAL */}
+  style={{
+    ...styles.calcResult,
+    borderLeft: "4px solid #4ade80",
+  }}
+>
+  💰 Futuro (20%): <b>${futuro.toLocaleString()}</b>
+</div>
+
+{/* 📊 BARRA VISUAL */}
 <div style={{ marginTop: "20px" }}>
   <h4 style={{ color: "#0f766e", marginBottom: "10px" }}>
     📊 Visualización de tu dinero
@@ -978,7 +980,8 @@ export default function App() {
     🟢 Vivir | 🟡 Deseos | 💚 Futuro
   </div>
 </div>
-                          {/* 🧠 FEEDBACK */}
+
+{/* 🧠 FEEDBACK */}
 <div style={{ marginTop: "15px" }}>
   {numIngresos === 0 && (
     <p style={{ color: "#64748b" }}>
