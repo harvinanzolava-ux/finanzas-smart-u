@@ -935,6 +935,75 @@ export default function App() {
                           }}
                         >
                           💰 Futuro (20%): <b>${futuro.toLocaleString()}</b>
+                          {/* 📊 BARRA VISUAL */}
+<div style={{ marginTop: "20px" }}>
+  <h4 style={{ color: "#0f766e", marginBottom: "10px" }}>
+    📊 Visualización de tu dinero
+  </h4>
+
+  <div
+    style={{
+      height: "20px",
+      width: "100%",
+      background: "#e5e7eb",
+      borderRadius: "20px",
+      overflow: "hidden",
+      display: "flex",
+    }}
+  >
+    <div
+      style={{
+        width: `${numIngresos ? 50 : 0}%`,
+        background: "#0f766e",
+        transition: "0.5s",
+      }}
+    />
+    <div
+      style={{
+        width: `${numIngresos ? 30 : 0}%`,
+        background: "#facc15",
+        transition: "0.5s",
+      }}
+    />
+    <div
+      style={{
+        width: `${numIngresos ? 20 : 0}%`,
+        background: "#4ade80",
+        transition: "0.5s",
+      }}
+    />
+  </div>
+
+  <div style={{ fontSize: "0.8rem", marginTop: "8px" }}>
+    🟢 Vivir | 🟡 Deseos | 💚 Futuro
+  </div>
+</div>
+                          {/* 🧠 FEEDBACK */}
+<div style={{ marginTop: "15px" }}>
+  {numIngresos === 0 && (
+    <p style={{ color: "#64748b" }}>
+      👉 Ingresa tus ingresos para ver tu estrategia financiera.
+    </p>
+  )}
+
+  {numIngresos > 0 && numIngresos < 1000000 && (
+    <p style={{ color: "#b45309", fontWeight: "bold" }}>
+      ⚠️ Tus ingresos son bajos. Enfócate en aumentarlos.
+    </p>
+  )}
+
+  {numIngresos >= 1000000 && numIngresos < 3000000 && (
+    <p style={{ color: "#0f766e", fontWeight: "bold" }}>
+      👍 Buen nivel. Ya puedes organizarte bien.
+    </p>
+  )}
+
+  {numIngresos >= 3000000 && (
+    <p style={{ color: "#065f46", fontWeight: "bold" }}>
+      🚀 Excelente. Ya estás listo para invertir fuerte.
+    </p>
+  )}
+</div>
                         </div>
                       </div>
                       <div>
@@ -1107,7 +1176,7 @@ export default function App() {
                     <h3 style={{ marginTop: 0, marginBottom: "10px" }}>
                       🛠️ Calculadora: Fondo de Emergencia
                     </h3>
-                    <p style={{ fontWeight: "bold", color: "#be185d" }}>
+                    <p style={{ fontWeight: "bold", color: "#be185d", marginBottom: "15px" }}>
   🚨 Sin fondo de emergencia, cualquier problema puede destruir tus finanzas.
 </p>
                     <p
@@ -1115,7 +1184,7 @@ export default function App() {
                         fontStyle: "italic",
                         fontSize: "0.85rem",
                         color: "#64748b",
-                        marginBottom: "10px",
+                        marginBottom: "15px",
                       }}
                     >
                       <b>Objetivo:</b> Saber cuánto dinero debes tener ahorrado
