@@ -1007,7 +1007,6 @@ export default function App() {
     </p>
   )}
 </div>
-                        </div>
                       </div>
                       <div>
                         <h4 style={styles.metaTitle}>🚨 Gastos Hormiga</h4>
