@@ -712,7 +712,7 @@ export default function App() {
                 </section>
                 <aside style={styles.sideCol}>
                   <div style={styles.musicCard}>
-                    <h4 style={{ marginTop: 0, color: "#be185d", marginbottom: "10px" }}>
+                    <h4 style={{ marginTop: 0, color: "#be185d", marginBottom: "15px" }}>
                       🎵 Algo de motivación 
                     </h4>
                     <iframe
@@ -773,9 +773,23 @@ export default function App() {
               <div style={styles.grid}>
                 <section style={styles.contentCard}>
                   <div style={styles.badge}>MÓDULO 2</div>
-                  <h2 style={{ color: "#0f766e", marginTop: "10px" }}>
+                  <h2 style={{ color: "#0f766e", marginTop: "10px", marginBottom: "15px" }}>
                     📊 El Presupuesto Maestro 50/30/20
                   </h2>
+                  <div
+  style={{
+    background: "#fef3c7",
+    padding: "15px",
+    borderRadius: "12px",
+    marginBottom: "20px",
+    border: "1px solid #fde68a",
+  }}
+>
+  <p style={{ margin: 0, color: "#92400e", fontSize: "0.95rem" }}>
+    ⚠️ Si no controlas tu dinero… tu dinero te controla a ti.
+    Este módulo te enseña a darle dirección a cada peso que ganas.
+  </p>
+</div>
                   <div style={styles.materialBox}>
                     <h3
                       style={{
@@ -861,7 +875,7 @@ export default function App() {
                     ></iframe>
                   </div>
                   <div style={styles.toolArea}>
-                    <h3 style={{ marginTop: 0 }}>
+                    <h3 style={{ marginTop: 0, marginBottom: "15px" }}>
                       🛠️ Actividad: Tu Presupuesto Real
                     </h3>
                     <p
@@ -950,8 +964,8 @@ export default function App() {
                 </section>
                 <aside style={styles.sideCol}>
                   <div style={styles.musicCard}>
-                    <h4 style={{ marginTop: 0, color: "#be185d" }}>
-                      🎵 Canción
+                    <h4 style={{ marginTop: 0, color: "#be185d", marginBottom: "15px" }}>
+                      🎵 Algo de motivación
                     </h4>
                     <iframe
                       width="100%"
@@ -962,7 +976,7 @@ export default function App() {
                     ></iframe>
                   </div>
                   <div style={styles.sideCardInspiration}>
-                    <h3 style={{ marginTop: 0, color: "#92400e" }}>
+                    <h3 style={{ marginTop: 0, color: "#92400e", marginBottom: "10px" }}>
                       💡 Sabiduría Módulo 2
                     </h3>
                     <p
