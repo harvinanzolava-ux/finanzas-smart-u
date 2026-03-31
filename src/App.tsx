@@ -955,21 +955,21 @@ export default function App() {
   >
     <div
       style={{
-        width: `${numIngresos ? 50 : 0}%`,
+        width: `${numIngreso ? 50 : 0}%`,
         background: "#0f766e",
         transition: "0.5s",
       }}
     />
     <div
       style={{
-        width: `${numIngresos ? 30 : 0}%`,
+        width: `${numIngreso ? 30 : 0}%`,
         background: "#facc15",
         transition: "0.5s",
       }}
     />
     <div
       style={{
-        width: `${numIngresos ? 20 : 0}%`,
+        width: `${numIngreso ? 20 : 0}%`,
         background: "#4ade80",
         transition: "0.5s",
       }}
@@ -983,25 +983,25 @@ export default function App() {
 
 {/* 🧠 FEEDBACK */}
 <div style={{ marginTop: "15px" }}>
-  {numIngresos === 0 && (
+  {numIngreso === 0 && (
     <p style={{ color: "#64748b" }}>
       👉 Ingresa tus ingresos para ver tu estrategia financiera.
     </p>
   )}
 
-  {numIngresos > 0 && numIngresos < 1000000 && (
+  {numIngreso > 0 && numIngreso < 1000000 && (
     <p style={{ color: "#b45309", fontWeight: "bold" }}>
       ⚠️ Tus ingresos son bajos. Enfócate en aumentarlos.
     </p>
   )}
 
-  {numIngresos >= 1000000 && numIngresos < 3000000 && (
+  {numIngreso >= 1000000 && numIngreso < 3000000 && (
     <p style={{ color: "#0f766e", fontWeight: "bold" }}>
       👍 Buen nivel. Ya puedes organizarte bien.
     </p>
   )}
 
-  {numIngresos >= 3000000 && (
+  {numIngreso >= 3000000 && (
     <p style={{ color: "#065f46", fontWeight: "bold" }}>
       🚀 Excelente. Ya estás listo para invertir fuerte.
     </p>
