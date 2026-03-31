@@ -774,7 +774,7 @@ export default function App() {
                 <section style={styles.contentCard}>
                   <div style={styles.badge}>MÓDULO 2</div>
                   <h2 style={{ color: "#0f766e", marginTop: "10px", marginBottom: "15px" }}>
-                    📊 El Presupuesto Maestro 50/30/20
+                    📊 Módulo 2: El Presupuesto Maestro 50/30/20
                   </h2>
                   <div
   style={{
@@ -878,6 +878,9 @@ export default function App() {
                     <h3 style={{ marginTop: 0, marginBottom: "15px" }}>
                       🛠️ Actividad: Tu Presupuesto Real
                     </h3>
+                    <p style={{ fontWeight: "bold", color: "#0f766e", marginBottom: "10px"  }}>
+  💡 Aquí es donde pasas de teoría a control real de tu dinero.
+</p>
                     <p
                       style={{
                         fontStyle: "italic",
