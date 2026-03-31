@@ -875,7 +875,7 @@ export default function App() {
                     ></iframe>
                   </div>
                   <div style={styles.toolArea}>
-                    <h3 style={{ marginTop: 0, marginBottom: "15px" }}>
+                    <h3 style={{ marginTop: 0, marginBottom: "10px" }}>
                       🛠️ Actividad: Tu Presupuesto Real
                     </h3>
                     <p style={{ fontWeight: "bold", color: "#0f766e", marginBottom: "10px"  }}>
@@ -1028,9 +1028,23 @@ export default function App() {
               <div style={styles.grid}>
                 <section style={styles.contentCard}>
                   <div style={styles.badge}>MÓDULO 3</div>
-                  <h2 style={{ color: "#0f766e", marginTop: "10px" }}>
-                    💰 Ahorro e Inversión Inteligente
+                  <h2 style={{ color: "#0f766e", marginTop: "10px",  marginBottom: "15px" }}>
+                    💰 Módulo 3: Ahorro e Inversión Inteligente
                   </h2>
+                  <div
+  style={{
+    background: "#ecfeff",
+    padding: "15px",
+    borderRadius: "12px",
+    marginBottom: "20px",
+    border: "1px solid #67e8f9",
+  }}
+>
+  <p style={{ margin: 0, color: "#0e7490", fontSize: "0.95rem" }}>
+    ⚠️ Si solo ahorras, te estancas. Si inviertes sin saber, pierdes.
+    Aquí aprenderás el equilibrio para hacer crecer tu dinero con inteligencia.
+  </p>
+</div>
                   <div style={styles.materialBox}>
                     <h3
                       style={{
@@ -1041,6 +1055,9 @@ export default function App() {
                     >
                       📖 Material: El ABC de la Inversión
                     </h3>
+                    <p style={{ fontSize: "0.85rem", color: "#64748b" }}>
+  💡 Entiende primero las reglas del juego antes de poner tu dinero en riesgo.
+</p>
                     <div
                       style={{
                         background: "white",
@@ -1087,9 +1104,12 @@ export default function App() {
                     ></iframe>
                   </div>
                   <div style={styles.toolArea}>
-                    <h3 style={{ marginTop: 0 }}>
+                    <h3 style={{ marginTop: 0, marginBottom: "10px" }}>
                       🛠️ Calculadora: Fondo de Emergencia
                     </h3>
+                    <p style={{ fontWeight: "bold", color: "#be185d" }}>
+  🚨 Sin fondo de emergencia, cualquier problema puede destruir tus finanzas.
+</p>
                     <p
                       style={{
                         fontStyle: "italic",
@@ -1136,8 +1156,8 @@ export default function App() {
                 </section>
                 <aside style={styles.sideCol}>
                   <div style={styles.musicCard}>
-                    <h4 style={{ marginTop: 0, color: "#be185d" }}>
-                      🎵 Himno del Ahorro
+                    <h4 style={{ marginTop: 0, color: "#be185d",  marginBottom: "15px" }}>
+                      🎵 Algo de motivación
                     </h4>
                     <iframe
                       width="100%"
@@ -1148,7 +1168,7 @@ export default function App() {
                     ></iframe>
                   </div>
                   <div style={styles.sideCardInspiration}>
-                    <h3 style={{ marginTop: 0, color: "#92400e" }}>
+                    <h3 style={{ marginTop: 0, color: "#92400e",  marginBottom: "10px"  }}>
                       💡 Sabiduría Módulo 3
                     </h3>
                     <p
