@@ -1299,6 +1299,7 @@ const [años, setAños] = useState<string>("1");
       </p>
     )}
   </div>
+   </div>
                   </div>
                 </section>
                 <aside style={styles.sideCol}>
