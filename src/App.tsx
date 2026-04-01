@@ -76,7 +76,13 @@ export default function App() {
   const deseos = numIngreso * 0.3;
   const futuro = numIngreso * 0.2;
   const numGastoM3 = parseFloat(gastoFijoM3) || 0;
+  const [inversionInicial, setInversionInicial] = useState<string>("");
+const [aporteMensual, setAporteMensual] = useState<string>("");
+const [años, setAños] = useState<string>("1");
   const totalDeudas = deudas.reduce((acc, curr) => acc + curr.monto, 0);
+  const [inversionInicial, setInversionInicial] = useState<string>("");
+const [aporteMensual, setAporteMensual] = useState<string>("");
+const [años, setAños] = useState<string>("1");
 
   // Lógica Viabilidad Módulo 5
   const precio = Number(precioInput) || 0;
@@ -1223,6 +1229,80 @@ export default function App() {
                       🏰 Ideal (6 meses):{" "}
                       <b>${(numGastoM3 * 6).toLocaleString()}</b>
                     </div>
+                    {/* 🚀 SIMULADOR DE INVERSIÓN */}
+<div style={{ marginTop: "25px" }}>
+  <h3 style={{ color: "#0f766e" }}>
+    📈 Simulador de Inversión
+  </h3>
+
+  <input
+    type="number"
+    placeholder="Inversión inicial $"
+    value={inversionInicial}
+    onChange={(e) => setInversionInicial(e.target.value)}
+    style={{ ...styles.inputSmall, marginBottom: "10px" }}
+  />
+
+  <input
+    type="number"
+    placeholder="Aporte mensual $"
+    value={aporteMensual}
+    onChange={(e) => setAporteMensual(e.target.value)}
+    style={{ ...styles.inputSmall, marginBottom: "10px" }}
+  />
+
+  <input
+    type="number"
+    placeholder="Años"
+    value={años}
+    onChange={(e) => setAños(e.target.value)}
+    style={{ ...styles.inputSmall, marginBottom: "15px" }}
+  />
+
+  <div style={{ ...styles.calcResult, borderLeft: "4px solid #0f766e" }}>
+    💰 Resultado: <b>${total.toLocaleString()}</b>
+  </div>
+
+  {/* 📊 BARRA */}
+  <div
+    style={{
+      height: "15px",
+      width: "100%",
+      background: "#e5e7eb",
+      borderRadius: "10px",
+      marginTop: "10px",
+      overflow: "hidden",
+    }}
+  >
+    <div
+      style={{
+        width: `${Math.min((total / 10000000) * 100, 100)}%`,
+        background: "#0f766e",
+        height: "100%",
+        transition: "0.5s",
+      }}
+    />
+  </div>
+
+  {/* 🧠 FEEDBACK */}
+  <div style={{ marginTop: "10px" }}>
+    {total < 1000000 && (
+      <p style={{ color: "#b45309" }}>
+        ⚠️ Vas lento. Aumenta tu aporte mensual.
+      </p>
+    )}
+    {total >= 1000000 && total < 5000000 && (
+      <p style={{ color: "#0f766e" }}>
+        👍 Buen inicio. La constancia es clave.
+      </p>
+    )}
+    {total >= 5000000 && (
+      <p style={{ color: "#065f46" }}>
+        🚀 Excelente. Ya estás construyendo riqueza.
+      </p>
+    )}
+  </div>
+</div>
                   </div>
                 </section>
                 <aside style={styles.sideCol}>
