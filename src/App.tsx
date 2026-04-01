@@ -80,6 +80,18 @@ export default function App() {
 const [aporteMensual, setAporteMensual] = useState<string>("");
 const [años, setAños] = useState<string>("1");
   const totalDeudas = deudas.reduce((acc, curr) => acc + curr.monto, 0);
+  const numInicial = parseFloat(inversionInicial) || 0;
+const numMensual = parseFloat(aporteMensual) || 0;
+const numAnios = parseFloat(años) || 0;
+
+// Supongamos 10% anual (puedes cambiarlo)
+const tasa = 0.10;
+
+// Fórmula interés compuesto simple
+const total =
+  numInicial * Math.pow(1 + tasa, numAnios) +
+  numMensual *
+    ((Math.pow(1 + tasa, numAnios) - 1) / tasa);
 
   // Lógica Viabilidad Módulo 5
   const precio = Number(precioInput) || 0;
