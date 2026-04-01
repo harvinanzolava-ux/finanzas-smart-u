@@ -80,9 +80,6 @@ export default function App() {
 const [aporteMensual, setAporteMensual] = useState<string>("");
 const [años, setAños] = useState<string>("1");
   const totalDeudas = deudas.reduce((acc, curr) => acc + curr.monto, 0);
-  const [inversionInicial, setInversionInicial] = useState<string>("");
-const [aporteMensual, setAporteMensual] = useState<string>("");
-const [años, setAños] = useState<string>("1");
 
   // Lógica Viabilidad Módulo 5
   const precio = Number(precioInput) || 0;
