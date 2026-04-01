@@ -1273,7 +1273,7 @@ const [años, setAños] = useState<string>("1");
   >
     <div
       style={{
-        width: `${Math.min((total / 10000000) * 100, 100)}%`,
+        width: `${Math.min((numGastoM3 / 10000000) * 100, 100)}%`,
         background: "#0f766e",
         height: "100%",
         transition: "0.5s",
@@ -1283,17 +1283,17 @@ const [años, setAños] = useState<string>("1");
 
   {/* 🧠 FEEDBACK */}
   <div style={{ marginTop: "10px" }}>
-    {total < 1000000 && (
+    {numGastoM3 < 1000000 && (
       <p style={{ color: "#b45309" }}>
         ⚠️ Vas lento. Aumenta tu aporte mensual.
       </p>
     )}
-    {total >= 1000000 && total < 5000000 && (
+    {numGastoM3 >= 1000000 && numGastoM3 < 5000000 && (
       <p style={{ color: "#0f766e" }}>
         👍 Buen inicio. La constancia es clave.
       </p>
     )}
-    {total >= 5000000 && (
+    {numGastoM3 >= 5000000 && (
       <p style={{ color: "#065f46" }}>
         🚀 Excelente. Ya estás construyendo riqueza.
       </p>
