@@ -83,8 +83,6 @@ export default function App() {
   const numInicial = parseFloat(inversionInicial) || 0;
   const numMensual = parseFloat(aporteMensual) || 0;
   const numAnios = parseFloat(años) || 0;
-  const invertido = numInicial + numMensual * (numAnios * 12);
-  const ganancia = total - invertido;
    
 // Supongamos 10% anual (puedes cambiarlo)
 const tasa = 0.10;
@@ -94,6 +92,8 @@ const total =
   numInicial * Math.pow(1 + tasa, numAnios) +
   numMensual *
     ((Math.pow(1 + tasa, numAnios) - 1) / tasa);
+  const invertido = numInicial + numMensual * (numAnios * 12);
+  const ganancia = total - invertido;
 
   // Lógica Viabilidad Módulo 5
   const precio = Number(precioInput) || 0;
