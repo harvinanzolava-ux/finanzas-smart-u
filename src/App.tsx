@@ -1242,37 +1242,56 @@ const total =
                     </div>
                     {/* 🚀 SIMULADOR DE INVERSIÓN */}
 <div style={{ marginTop: "25px" }}>
-  <h3 style={{ color: "#0f766e" }}>
+  <h3 style={{ color: "#0f766e", marginBottom: "15px" }}>
     📈 Simulador de Inversión
   </h3>
 
+  <p style={{
+  fontSize: "0.85rem",
+  color: "#64748b",
+  marginBottom: "15px"
+}}>
+  💡 Este simulador te muestra cómo crecería tu dinero en el tiempo usando interés compuesto.
+  Ajusta los valores para ver cómo pequeñas decisiones hoy impactan tu futuro financiero.
+</p>
+  
   <input
-    type="number"
-    placeholder="Inversión inicial $"
-    value={inversionInicial}
-    onChange={(e) => setInversionInicial(e.target.value)}
-    style={{ ...styles.inputSmall, marginBottom: "10px" }}
-  />
+  type="number"
+  placeholder="💰 ¿Cuánto dinero tienes para empezar?"
+  value={inversionInicial}
+  onChange={(e) => setInversionInicial(e.target.value)}
+  style={{ ...styles.inputSmall, marginBottom: "10px" }}
+/>
 
-  <input
-    type="number"
-    placeholder="Aporte mensual $"
-    value={aporteMensual}
-    onChange={(e) => setAporteMensual(e.target.value)}
-    style={{ ...styles.inputSmall, marginBottom: "10px" }}
-  />
+<input
+  type="number"
+  placeholder="📅 ¿Cuánto puedes invertir cada mes?"
+  value={aporteMensual}
+  onChange={(e) => setAporteMensual(e.target.value)}
+  style={{ ...styles.inputSmall, marginBottom: "10px" }}
+/>
 
-  <input
-    type="number"
-    placeholder="Años"
-    value={años}
-    onChange={(e) => setAños(e.target.value)}
-    style={{ ...styles.inputSmall, marginBottom: "15px" }}
-  />
+<input
+  type="number"
+  placeholder="⏳ ¿Durante cuántos años invertirás?"
+  value={años}
+  onChange={(e) => setAños(e.target.value)}
+  style={{ ...styles.inputSmall, marginBottom: "15px" }}
+/>
+
+  <div style={{ fontSize: "0.75rem", color: "#94a3b8", marginBottom: "10px" }}>
+  Ejemplo: empiezas con $1,000,000, aportas $200,000 mensuales durante 5 años.
+</div>
 
   <div style={{ ...styles.calcResult, borderLeft: "4px solid #0f766e" }}>
     💰 Resultado: <b>${total.toLocaleString()}</b>
   </div>
+
+  {total > 0 && (
+  <p style={{ color: "#065f46", fontWeight: "bold", marginTop: "10px" }}>
+    🔥 Tu dinero puede multiplicarse en el tiempo si eres constante.
+  </p>
+)}
 
   {/* 📊 BARRA */}
  <div
