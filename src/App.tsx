@@ -31,25 +31,8 @@ export default function App() {
   const [deudas, setDeudas] = useState<{ nombre: string; monto: number }[]>([]);
   const [inputDeudaNombre, setInputDeudaNombre] = useState("");
   const [inputDeudaMonto, setInputDeudaMonto] = useState("");
-  // Total de deudas
-  const totalDeudas = deudas.reduce((acc, curr) => acc + curr.monto, 0);
 // Ordenar de menor a mayor (BOLA DE NIEVE REAL)
   const deudasOrdenadas = [...deudas].sort((a, b) => a.monto - b.monto);
-  const agregarDeuda = () => {
-  if (!inputDeudaNombre || !inputDeudaMonto) return;
-
-  setDeudas([
-    ...deudas,
-    {
-      nombre: inputDeudaNombre,
-      monto: parseFloat(inputDeudaMonto),
-    },
-  ]);
-
-  setInputDeudaNombre("");
-  setInputDeudaMonto("");
-};
-
   // --- ESTADOS MÓDULO 5 (AVANZADO) ---
   const [habilidadInput, setHabilidadInput] = useState("");
   const [mercadoInput, setMercadoInput] = useState("");
@@ -1541,7 +1524,6 @@ export default function App() {
         ${d.monto.toLocaleString()}
       </span>
     </div>
-
     {/* 🔥 EFECTO BOLA DE NIEVE */}
     {index === 0 && (
       <span style={{ color: "#16a34a", fontSize: "0.75rem" }}>
@@ -1550,7 +1532,7 @@ export default function App() {
     )}
   </div>
 ))
-                      )}
+  )}
                       <div
                         style={{
                           marginTop: "15px",
