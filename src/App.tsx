@@ -77,13 +77,15 @@ export default function App() {
   const futuro = numIngreso * 0.2;
   const numGastoM3 = parseFloat(gastoFijoM3) || 0;
   const [inversionInicial, setInversionInicial] = useState<string>("");
-const [aporteMensual, setAporteMensual] = useState<string>("");
-const [años, setAños] = useState<string>("1");
+  const [aporteMensual, setAporteMensual] = useState<string>("");
+  const [años, setAños] = useState<string>("1");
   const totalDeudas = deudas.reduce((acc, curr) => acc + curr.monto, 0);
   const numInicial = parseFloat(inversionInicial) || 0;
-const numMensual = parseFloat(aporteMensual) || 0;
-const numAnios = parseFloat(años) || 0;
-
+  const numMensual = parseFloat(aporteMensual) || 0;
+  const numAnios = parseFloat(años) || 0;
+  const invertido = numInicial + numMensual * (numAnios * 12);
+  const ganancia = total - invertido;
+   
 // Supongamos 10% anual (puedes cambiarlo)
 const tasa = 0.10;
 
@@ -1273,44 +1275,55 @@ const total =
   </div>
 
   {/* 📊 BARRA */}
+ <div
+  style={{
+    height: "15px",
+    width: "100%",
+    background: "#e5e7eb",
+    borderRadius: "10px",
+    marginTop: "10px",
+    overflow: "hidden",
+    display: "flex",
+  }}
+>
   <div
     style={{
-      height: "15px",
-      width: "100%",
-      background: "#e5e7eb",
-      borderRadius: "10px",
-      marginTop: "10px",
-      overflow: "hidden",
+      width: `${total > 0 ? (invertido / total) * 100 : 0}%`,
+      background: "#64748b",
+      height: "100%",
+      transition: "0.5s",
     }}
-  >
-    <div
-      style={{
-        width: `${Math.min((numGastoM3 / 10000000) * 100, 100)}%`,
-        background: "#0f766e",
-        height: "100%",
-        transition: "0.5s",
-      }}
-    />
-  </div>
+  />
+  <div
+    style={{
+      width: `${total > 0 ? (ganancia / total) * 100 : 0}%`,
+      background: "#22c55e",
+      height: "100%",
+      transition: "0.5s",
+    }}
+  />
+</div>
 
   {/* 🧠 FEEDBACK */}
   <div style={{ marginTop: "10px" }}>
-    {numGastoM3 < 1000000 && (
-      <p style={{ color: "#b45309" }}>
-        ⚠️ Vas lento. Aumenta tu aporte mensual.
-      </p>
-    )}
-    {numGastoM3 >= 1000000 && numGastoM3 < 5000000 && (
-      <p style={{ color: "#0f766e" }}>
-        👍 Buen inicio. La constancia es clave.
-      </p>
-    )}
-    {numGastoM3 >= 5000000 && (
-      <p style={{ color: "#065f46" }}>
-        🚀 Excelente. Ya estás construyendo riqueza.
-      </p>
-    )}
-  </div>
+  {ganancia <= 0 && (
+    <p style={{ color: "#b91c1c" }}>
+      ⚠️ Tu dinero no está creciendo.
+    </p>
+  )}
+
+  {ganancia > 0 && ganancia < invertido && (
+    <p style={{ color: "#b45309" }}>
+      👍 Vas bien, pero puedes mejorar.
+    </p>
+  )}
+
+  {ganancia >= invertido && (
+    <p style={{ color: "#065f46" }}>
+      🚀 Excelente, estás generando riqueza.
+    </p>
+  )}
+</div>
    </div>
                   </div>
                 </section>
