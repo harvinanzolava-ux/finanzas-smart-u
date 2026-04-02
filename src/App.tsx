@@ -83,15 +83,16 @@ export default function App() {
   const numInicial = parseFloat(inversionInicial) || 0;
   const numMensual = parseFloat(aporteMensual) || 0;
   const numAnios = parseFloat(años) || 0;
-   
-// Supongamos 10% anual (puedes cambiarlo)
-const tasa = 0.10;
-
-// Fórmula interés compuesto simple
-const total =
-  numInicial * Math.pow(1 + tasa, numAnios) +
-  numMensual *
-    ((Math.pow(1 + tasa, numAnios) - 1) / tasa);
+// 🔥 Tasa anual → convertir a mensual
+  const tasaAnual = 0.10;
+  const tasaMensual = tasaAnual / 12;
+// 🔥 Años → meses
+  const meses = numAnios * 12;
+// 🔥 Cálculo correcto
+  const total =
+    numInicial * Math.pow(1 + tasaMensual, meses) +
+    numMensual *
+      ((Math.pow(1 + tasaMensual, meses) - 1) / tasaMensual);
   const invertido = numInicial + numMensual * (numAnios * 12);
   const ganancia = total - invertido;
 
