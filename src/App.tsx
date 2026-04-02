@@ -31,6 +31,24 @@ export default function App() {
   const [deudas, setDeudas] = useState<{ nombre: string; monto: number }[]>([]);
   const [inputDeudaNombre, setInputDeudaNombre] = useState("");
   const [inputDeudaMonto, setInputDeudaMonto] = useState("");
+  // Total de deudas
+  const totalDeudas = deudas.reduce((acc, curr) => acc + curr.monto, 0);
+// Ordenar de menor a mayor (BOLA DE NIEVE REAL)
+  const deudasOrdenadas = [...deudas].sort((a, b) => a.monto - b.monto);
+  const agregarDeuda = () => {
+  if (!inputDeudaNombre || !inputDeudaMonto) return;
+
+  setDeudas([
+    ...deudas,
+    {
+      nombre: inputDeudaNombre,
+      monto: parseFloat(inputDeudaMonto),
+    },
+  ]);
+
+  setInputDeudaNombre("");
+  setInputDeudaMonto("");
+};
 
   // --- ESTADOS MÓDULO 5 (AVANZADO) ---
   const [habilidadInput, setHabilidadInput] = useState("");
@@ -1410,9 +1428,12 @@ export default function App() {
               <div style={styles.grid}>
                 <section style={styles.contentCard}>
                   <div style={styles.badge}>MÓDULO 4</div>
-                  <h2 style={{ color: "#0f766e", marginTop: "10px" }}>
+                  <h2 style={{ color: "#0f766e", marginTop: "10px", marginBottom: "15px" }}>
                     🛡️ El Escudo Financiero: Deudas
                   </h2>
+                  <p style={{ fontWeight: "bold", color: "#be185d", marginBottom: "10px" }}>
+  💡 Vas a eliminar tus deudas empezando por la más pequeña (efecto bola de nieve).
+</p>
                   <div style={styles.materialBox}>
                     <h3
                       style={{
@@ -1446,7 +1467,7 @@ export default function App() {
                     ></iframe>
                   </div>
                   <div style={styles.toolArea}>
-                    <h3 style={{ marginTop: 0 }}>
+                    <h3 style={{ marginTop: 0, marginBottom: "15px" }}>
                       🛠️ Actividad: Plan Bola de Nieve
                     </h3>
                     <p
@@ -1503,26 +1524,32 @@ export default function App() {
                           No hay deudas registradas.
                         </p>
                       ) : (
-                        deudas.map((d, index) => (
-                          <div
-                            key={index}
-                            style={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                              padding: "8px 0",
-                              borderBottom: "1px solid #f1f5f9",
-                            }}
-                          >
-                            <span style={{ fontSize: "0.9rem" }}>
-                              {d.nombre}
-                            </span>
-                            <span
-                              style={{ fontWeight: "bold", color: "#be185d" }}
-                            >
-                              ${d.monto.toLocaleString()}
-                            </span>
-                          </div>
-                        ))
+                        deudasOrdenadas.map((d, index) => (
+  <div
+    key={index}
+    style={{
+      display: "flex",
+      justifyContent: "space-between",
+      padding: "8px 0",
+      borderBottom: "1px solid #f1f5f9",
+      flexDirection: "column", // 👈 IMPORTANTE
+    }}
+  >
+    <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <span style={{ fontSize: "0.9rem" }}>{d.nombre}</span>
+      <span style={{ fontWeight: "bold", color: "#be185d" }}>
+        ${d.monto.toLocaleString()}
+      </span>
+    </div>
+
+    {/* 🔥 EFECTO BOLA DE NIEVE */}
+    {index === 0 && (
+      <span style={{ color: "#16a34a", fontSize: "0.75rem" }}>
+        🔥 Prioridad de pago
+      </span>
+    )}
+  </div>
+))
                       )}
                       <div
                         style={{
