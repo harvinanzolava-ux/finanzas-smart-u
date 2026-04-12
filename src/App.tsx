@@ -423,7 +423,7 @@ export default function App() {
                 : "Módulo 6:📜 Mi Decreto";
 
             return (
-              <main>
+              <main>  
               <div
                 key={`nav-${num}`}
                 onClick={() => setCurrentModule(num)}
@@ -443,7 +443,7 @@ export default function App() {
                 <span>{completed.indexOf(num) !== -1 ? "✅" : ""}</span>
               </div>
             );
-          })}
+          }}
         </div>
       </nav>
 
