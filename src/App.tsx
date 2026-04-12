@@ -1807,13 +1807,10 @@ export default function App() {
                         ${ingresoMensualExtra.toLocaleString()}
                       </p>
                       <p style={{ fontSize: "0.75rem", margin: 0 }}>
-                        {ingresoMensualExtra > 0
-                          ? `✨ Con este ingreso extra, podrías cubrir el ${(
-                             const porcentajeCobertura =
-                              numGastoM3 > 0 ? (ingresoMensualExtra / numGastoM3) * 100 : 0;
-                            ).toFixed(1)}% de tus gastos fijos.`
-                          : "Ingresa valores para ver el impacto en tus finanzas."}
-                      </p>
+  {ingresoMensualExtra > 0
+    ? `🔥 Este ingreso podría cubrir el ${porcentajeCobertura.toFixed(1)}% de tus gastos.`
+    : "Ingresa valores para ver cuánto dinero puedes generar."}
+</p>
                     </div>
                   </div>
                 </section>
