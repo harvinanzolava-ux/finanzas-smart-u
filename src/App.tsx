@@ -3,6 +3,10 @@ import React, { useState, useMemo, useEffect } from "react";
 export default function App() {
   const [user, setUser] = useState<string | null>(null);
   const [name, setName] = useState<string>("");
+  useEffect(() => {
+   const [decreto, setDecreto] = useState(
+  localStorage.getItem("decretoUsuario") || ""
+);
   const [currentModule, setCurrentModule] = useState<number>(1);
   const [completed, setCompleted] = useState<number[]>([]);
 
@@ -48,11 +52,6 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem("completedModules", JSON.stringify(completed));
   }, [completed]);
-
-  useEffect(() => {
-   const [decreto, setDecreto] = useState(
-  localStorage.getItem("decretoUsuario") || ""
-);
 
   useEffect(() => {
     const handleResize = () => {
