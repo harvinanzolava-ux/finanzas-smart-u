@@ -2385,7 +2385,6 @@ Firma Digital: Smart U Graduate
             )}
            </>
          )}
-      </main>
       {/* ============================================== */}
       {/* --- INICIO VENTANA VIP --- */}
       {showVipZone && (
