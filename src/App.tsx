@@ -1812,6 +1812,50 @@ export default function App() {
     : "Ingresa valores para ver cuánto dinero puedes generar."}
 </p>
                     </div>
+                    <div style={{ marginTop: "10px" }}>
+  {ingresoMensualExtra > 0 && ingresoMensualExtra < 500000 && (
+    <p style={{ color: "#b45309" }}>
+      ⚠️ Buen inicio, pero necesitas escalar.
+    </p>
+  )}
+
+  {ingresoMensualExtra >= 500000 && ingresoMensualExtra < 2000000 && (
+    <p style={{ color: "#0f766e" }}>
+      👍 Ya tienes un ingreso extra real.
+    </p>
+  )}
+
+  {ingresoMensualExtra >= 2000000 && (
+    <p style={{ color: "#065f46" }}>
+      🚀 Esto puede cambiar tu vida financiera.
+    </p>
+  )}
+</div>
+                    <div style={{ marginTop: "10px" }}>
+                      <div
+  style={{
+    height: "15px",
+    width: "100%",
+    background: "#e5e7eb",
+    borderRadius: "10px",
+    marginTop: "10px",
+    overflow: "hidden",
+  }}
+>
+  <div
+    style={{
+      width: `${Math.min((ingresoMensualExtra / 3000000) * 100, 100)}%`,
+      background: "#0f766e",
+      height: "100%",
+      transition: "0.5s",
+    }}
+  />
+</div>
+                      {habilidadInput && (
+  <p style={{ fontSize: "0.75rem", color: "#475569", marginTop: "8px" }}>
+    💡 Estás monetizando: <b>{habilidadInput}</b>
+  </p>
+)}
                   </div>
                 </section>
                 <aside style={styles.sideCol}>
