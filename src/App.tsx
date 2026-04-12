@@ -1714,6 +1714,13 @@ export default function App() {
                     <h3 style={{ marginTop: 0 }}>
                       🛠️ Actividad: Business Case de Bolsillo
                     </h3>
+                    <p style={{
+  fontSize: "0.85rem",
+  color: "#64748b",
+  marginBottom: "15px"
+}}>
+  💡 Convierte una idea en dinero. Define qué vendes, cuánto cobras y cuántas veces al mes. Aquí verás cuánto puedes generar.
+</p>
                     <p
                       style={{
                         fontStyle: "italic",
@@ -1802,7 +1809,8 @@ export default function App() {
                       <p style={{ fontSize: "0.75rem", margin: 0 }}>
                         {ingresoMensualExtra > 0
                           ? `✨ Con este ingreso extra, podrías cubrir el ${(
-                              (ingresoMensualExtra / numGastoM3) * 100 || 0
+                             const porcentajeCobertura =
+                              numGastoM3 > 0 ? (ingresoMensualExtra / numGastoM3) * 100 : 0;
                             ).toFixed(1)}% de tus gastos fijos.`
                           : "Ingresa valores para ver el impacto en tus finanzas."}
                       </p>
