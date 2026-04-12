@@ -3,10 +3,6 @@ import React, { useState, useMemo, useEffect } from "react";
 export default function App() {
   const [user, setUser] = useState<string | null>(null);
   const [name, setName] = useState<string>("");
-  useEffect(() => {
-   const [decreto, setDecreto] = useState(
-  localStorage.getItem("decretoUsuario") || ""
-);
   const [currentModule, setCurrentModule] = useState<number>(1);
   const [completed, setCompleted] = useState<number[]>([]);
 
@@ -54,6 +50,16 @@ export default function App() {
   }, [completed]);
 
   useEffect(() => {
+    const saved = localStorage.getItem("decretoUsuario");
+    if (saved) {
+      const textarea = document.getElementById(
+        "decretoTexto"
+      ) as HTMLTextAreaElement;
+      if (textarea) textarea.value = saved;
+    }
+  }, []);
+
+  useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -96,10 +102,7 @@ export default function App() {
   const numVentas = parseFloat(horasInput) || 0;
 
   const ingresoMensualExtra = numPrecio * numVentas;
-  const porcentajeCobertura =
-  numGastoM3 > 0
-    ? (ingresoMensualExtra / numGastoM3) * 100
-    : 0;
+  (parseFloat(precioInput) || 0) * (parseFloat(horasInput) || 0);
 
   const progress = useMemo(() => {
     return completed.length > 0 ? Math.round((completed.length / 6) * 100) : 0;
@@ -423,7 +426,6 @@ export default function App() {
                 : "Módulo 6:📜 Mi Decreto";
 
             return (
-              <main>  
               <div
                 key={`nav-${num}`}
                 onClick={() => setCurrentModule(num)}
@@ -443,7 +445,7 @@ export default function App() {
                 <span>{completed.indexOf(num) !== -1 ? "✅" : ""}</span>
               </div>
             );
-          }}
+          })}
         </div>
       </nav>
 
@@ -2108,30 +2110,30 @@ export default function App() {
                       }}
                     >
                       <textarea
-  value={decreto}
-  onChange={(e) => {
-    setDecreto(e.target.value);
-    localStorage.setItem("decretoUsuario", e.target.value);
-  }}
-  placeholder="Yo, [Tu Nombre], me comprometo a que en 12 meses habré..."
-  style={{
-    width: "100%",
-    padding: "20px",
-    borderRadius: "15px",
-    border: "none",
-    background: "#334155",
-    color: "white",
-    fontSize: "1rem",
-    minHeight: "120px",
-    outline: "none",
-    borderLeft: "4px solid #4ade80",
-    lineHeight: "1.5",
-  }}
-/>
+                        id="decretoTexto"
+                        placeholder="Yo, [Tu Nombre], me comprometo a que en 12 meses habré..."
+                        style={{
+                          width: "100%",
+                          padding: "20px",
+                          borderRadius: "15px",
+                          border: "none",
+                          background: "#334155",
+                          color: "white",
+                          fontSize: "1rem",
+                          minHeight: "120px",
+                          outline: "none",
+                          borderLeft: "4px solid #4ade80",
+                          lineHeight: "1.5",
+                        }}
+                      />
 
                       <button
                         onClick={() => {
-                        const texto = decreto;
+                          const texto = (
+                            document.getElementById(
+                              "decretoTexto"
+                            ) as HTMLTextAreaElement
+                          ).value;
                           localStorage.setItem("decretoUsuario", texto);
                           if (!texto)
                             return alert(
@@ -2219,17 +2221,6 @@ Firma Digital: Smart U Graduate
                           boxShadow: "0 10px 15px -3px rgba(74, 222, 128, 0.3)",
                         }}
                       >
-                        {progress === 100 && (
-  <div style={{
-    textAlign: "center",
-    marginTop: "20px",
-    fontSize: "1.2rem",
-    color: "#16a34a",
-    fontWeight: "bold"
-  }}>
-    🎉 Bienvenido al 1% que toma acción.
-  </div>
-)}
                         {/* Emojis flotantes de celebración */}
                         <div
                           style={{
@@ -2384,6 +2375,11 @@ Firma Digital: Smart U Graduate
                 </aside>
               </div>
             )}
+
+            {/* === ESTAS SON LAS LÍNEAS QUE ARREGLAN TODO === */}
+          </>
+        )}
+      </main>
       {/* ============================================== */}
       {/* --- INICIO VENTANA VIP --- */}
       {showVipZone && (
@@ -3037,9 +3033,10 @@ Firma Digital: Smart U Graduate
           </div>
         </div>
       )}
-    </main>
-      );
-    }
+      {/* --- FIN VENTANA VIP --- */}
+    </div>
+  );
+}
 const styles: { [key: string]: React.CSSProperties } = {
   // --- ESTILOS DE LOGIN ACTUALIZADOS (Efecto Vidrio) ---
   loginWrapper: {
@@ -3253,4 +3250,4 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontWeight: "bold",
     fontSize: "0.85rem",
   },
-};  
+};
