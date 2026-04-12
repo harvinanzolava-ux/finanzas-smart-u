@@ -423,6 +423,7 @@ export default function App() {
                 : "Módulo 6:📜 Mi Decreto";
 
             return (
+              <main>
               <div
                 key={`nav-${num}`}
                 onClick={() => setCurrentModule(num)}
@@ -2383,7 +2384,6 @@ Firma Digital: Smart U Graduate
                 </aside>
               </div>
             )}
-         )}
       {/* ============================================== */}
       {/* --- INICIO VENTANA VIP --- */}
       {showVipZone && (
