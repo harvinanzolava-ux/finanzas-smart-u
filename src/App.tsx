@@ -39,9 +39,6 @@ export default function App() {
   const [precioInput, setPrecioInput] = useState("");
   const [horasInput, setHorasInput] = useState("");
   useEffect(() => {
-    const [decreto, setDecreto] = useState(
-  localStorage.getItem("decretoUsuario") || ""
-);
     const savedCompleted = localStorage.getItem("completedModules");
     if (savedCompleted) {
       setCompleted(JSON.parse(savedCompleted));
@@ -53,14 +50,9 @@ export default function App() {
   }, [completed]);
 
   useEffect(() => {
-    const saved = localStorage.getItem("decretoUsuario");
-    if (saved) {
-      const textarea = document.getElementById(
-        "decretoTexto"
-      ) as HTMLTextAreaElement;
-      if (textarea) textarea.value = saved;
-    }
-  }, []);
+   const [decreto, setDecreto] = useState(
+  localStorage.getItem("decretoUsuario") || ""
+);
 
   useEffect(() => {
     const handleResize = () => {
@@ -105,7 +97,6 @@ export default function App() {
   const numVentas = parseFloat(horasInput) || 0;
 
   const ingresoMensualExtra = numPrecio * numVentas;
-  (parseFloat(precioInput) || 0) * (parseFloat(horasInput) || 0);
   const porcentajeCobertura =
   numGastoM3 > 0
     ? (ingresoMensualExtra / numGastoM3) * 100
