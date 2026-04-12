@@ -3040,10 +3040,9 @@ Firma Digital: Smart U Graduate
           </div>
         </div>
       )}
-      {/* --- FIN VENTANA VIP --- */}
+    </main>
     </div>
   );
-}
 const styles: { [key: string]: React.CSSProperties } = {
   // --- ESTILOS DE LOGIN ACTUALIZADOS (Efecto Vidrio) ---
   loginWrapper: {
@@ -3258,3 +3257,4 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontSize: "0.85rem",
   },
 };
+}    
