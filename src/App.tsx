@@ -39,6 +39,9 @@ export default function App() {
   const [precioInput, setPrecioInput] = useState("");
   const [horasInput, setHorasInput] = useState("");
   useEffect(() => {
+    const [decreto, setDecreto] = useState(
+  localStorage.getItem("decretoUsuario") || ""
+);
     const savedCompleted = localStorage.getItem("completedModules");
     if (savedCompleted) {
       setCompleted(JSON.parse(savedCompleted));
