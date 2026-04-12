@@ -1914,10 +1914,10 @@ export default function App() {
                     <div style={styles.congratsLabel}>
                       Llevas el {progress}% del curso
                     </div>
-                  )}
+                   )}
                 </aside>
-              </div>
-            )}
+                  </div>
+                )}
 
             {currentModule === 6 && (
               <div style={styles.grid}>
