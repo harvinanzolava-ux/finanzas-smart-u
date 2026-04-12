@@ -2114,30 +2114,30 @@ export default function App() {
                       }}
                     >
                       <textarea
-                        id="decretoTexto"
-                        placeholder="Yo, [Tu Nombre], me comprometo a que en 12 meses habré..."
-                        style={{
-                          width: "100%",
-                          padding: "20px",
-                          borderRadius: "15px",
-                          border: "none",
-                          background: "#334155",
-                          color: "white",
-                          fontSize: "1rem",
-                          minHeight: "120px",
-                          outline: "none",
-                          borderLeft: "4px solid #4ade80",
-                          lineHeight: "1.5",
-                        }}
-                      />
+  value={decreto}
+  onChange={(e) => {
+    setDecreto(e.target.value);
+    localStorage.setItem("decretoUsuario", e.target.value);
+  }}
+  placeholder="Yo, [Tu Nombre], me comprometo a que en 12 meses habré..."
+  style={{
+    width: "100%",
+    padding: "20px",
+    borderRadius: "15px",
+    border: "none",
+    background: "#334155",
+    color: "white",
+    fontSize: "1rem",
+    minHeight: "120px",
+    outline: "none",
+    borderLeft: "4px solid #4ade80",
+    lineHeight: "1.5",
+  }}
+/>
 
                       <button
                         onClick={() => {
-                          const texto = (
-                            document.getElementById(
-                              "decretoTexto"
-                            ) as HTMLTextAreaElement
-                          ).value;
+                        const texto = decreto;
                           localStorage.setItem("decretoUsuario", texto);
                           if (!texto)
                             return alert(
@@ -2225,6 +2225,17 @@ Firma Digital: Smart U Graduate
                           boxShadow: "0 10px 15px -3px rgba(74, 222, 128, 0.3)",
                         }}
                       >
+                        {progress === 100 && (
+  <div style={{
+    textAlign: "center",
+    marginTop: "20px",
+    fontSize: "1.2rem",
+    color: "#16a34a",
+    fontWeight: "bold"
+  }}>
+    🎉 Bienvenido al 1% que toma acción.
+  </div>
+)}
                         {/* Emojis flotantes de celebración */}
                         <div
                           style={{
