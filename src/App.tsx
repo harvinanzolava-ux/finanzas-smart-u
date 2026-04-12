@@ -1851,13 +1851,14 @@ export default function App() {
     }}
   />
 </div>
-                      {habilidadInput && (
+                  {habilidadInput && (
   <p style={{ fontSize: "0.75rem", color: "#475569", marginTop: "8px" }}>
     💡 Estás monetizando: <b>{habilidadInput}</b>
   </p>
 )}
-                  </div>
-                </section>
+                    </div> {/* 👈 Cierra div interno */}
+                  </div>   {/* 👈 Cierra toolArea */}
+                </section>    
                 <aside style={styles.sideCol}>
                   <div style={styles.musicCard}>
                     <h4 style={{ marginTop: 0, color: "#be185d" }}>
