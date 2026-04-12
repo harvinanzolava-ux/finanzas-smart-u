@@ -2383,7 +2383,6 @@ Firma Digital: Smart U Graduate
                 </aside>
               </div>
             )}
-           </>
          )}
       {/* ============================================== */}
       {/* --- INICIO VENTANA VIP --- */}
@@ -3039,7 +3038,7 @@ Firma Digital: Smart U Graduate
         </div>
       )}
     </main>
-  );
+      );
     }
 const styles: { [key: string]: React.CSSProperties } = {
   // --- ESTILOS DE LOGIN ACTUALIZADOS (Efecto Vidrio) ---
