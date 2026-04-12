@@ -98,10 +98,10 @@ export default function App() {
   const ganancia = total - invertido;
 
   // Lógica Viabilidad Módulo 5
-  const precio = Number(precioInput) || 0;
-  const ventas = Number(horasInput) || 0;
+  const numPrecio = parseFloat(precioInput) || 0;
+  const numVentas = parseFloat(horasInput) || 0;
 
-  const ingresoMensualExtra = precio * ventas;
+  const ingresoMensualExtra = numPrecio * numVentas;
   (parseFloat(precioInput) || 0) * (parseFloat(horasInput) || 0);
 
   const progress = useMemo(() => {
