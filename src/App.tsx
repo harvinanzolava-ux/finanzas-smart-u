@@ -103,6 +103,10 @@ export default function App() {
 
   const ingresoMensualExtra = numPrecio * numVentas;
   (parseFloat(precioInput) || 0) * (parseFloat(horasInput) || 0);
+  const porcentajeCobertura =
+  numGastoM3 > 0
+    ? (ingresoMensualExtra / numGastoM3) * 100
+    : 0;
 
   const progress = useMemo(() => {
     return completed.length > 0 ? Math.round((completed.length / 6) * 100) : 0;
